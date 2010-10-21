@@ -1,0 +1,21 @@
+<%= form_for(@divesite) do |f| %>
+  <% if @divesite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@divesite.errors.count, "error") %> prohibited this divesite from being saved:</h2>
+
+      <ul>
+      <% @divesite.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :point %><br />
+    <%= f.text_field :point %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

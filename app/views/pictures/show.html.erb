@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Pic:</b>
+  <%= @picture.pic_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @picture.name %>
+</p>
+
+<p>
+  <b>Dive site:</b>
+  <%= @picture.dive_site %>
+</p>
+
+<p>
+  <b>Pict date:</b>
+  <%= @picture.pict_date %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= @picture.tags %>
+</p>
+
+
+<%= link_to 'Edit', edit_picture_path(@picture) %> |
+<%= link_to 'Back', pictures_path %>
