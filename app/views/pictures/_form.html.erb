@@ -1,4 +1,4 @@
-<%= form_for(@picture) do |f| %>
+<%= form_for(@picture, {}, :html => { :multipart => true }) do |f| %>
   <% if @picture.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
@@ -12,24 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :pic_id %><br />
-    <%= f.text_field :pic_id %>
+    <%= f.label :pictid %><br />
+    <%= f.text_field :pictid %>
   </div>
+<!--ポイントを選択する
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <# %= f.label :divesite %><br />
+    <# %= f.text_field :divesite %>
   </div>
+--!>
   <div class="field">
-    <%= f.label :dive_site %><br />
-    <%= f.text_field :dive_site %>
+    <%= f.label :pictdate %><br />
+    <%= f.datetime_select :pictdate %>
   </div>
-  <div class="field">
-    <%= f.label :pict_date %><br />
-    <%= f.datetime_select :pict_date %>
-  </div>
-  <div class="field">
-    <%= f.label :tags %><br />
-    <%= f.text_field :tags %>
+  <div class="filed">
+    <%= f.label :originalpict %><br />
+    <%= f.file_field :originalpict %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  pic_id: 
+  name: MyString
+  dive_site: MyString
+  pict_date: 2010-10-03 19:44:29
+  tags: MyString
+
+two:
+  pic_id: 
+  name: MyString
+  dive_site: MyString
+  pict_date: 2010-10-03 19:44:29
+  tags: MyString

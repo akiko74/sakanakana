@@ -2,29 +2,21 @@
 
 <p>
   <b>Pic:</b>
-  <%= @picture.pic_id %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @picture.name %>
-</p>
-
-<p>
-  <b>Dive site:</b>
-  <%= @picture.dive_site %>
+  <%= @picture.pictid %>
 </p>
 
 <p>
   <b>Pict date:</b>
-  <%= @picture.pict_date %>
+  <%= @picture.pictdate %>
 </p>
 
 <p>
-  <b>Tags:</b>
-  <%= @picture.tags %>
+<% if @picture.originalpict_exist? %>
+<%= image_tag @picture.public_originalpict_filepath %>
 </p>
 
 
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Back', pictures_path %>
+
+<% end %>

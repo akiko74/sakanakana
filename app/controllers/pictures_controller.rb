@@ -1,6 +1,13 @@
 class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.xml
+
+  def originalpict
+    @picture=Picture.find(params[:id])
+    raise ActiveRecord::RecordNotFound unless @picture.originalpict_exist?
+    send_file(@picture.originalpict_filepath)
+  end
+
   def index
     @pictures = Picture.all
 

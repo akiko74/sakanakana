@@ -1,0 +1,395 @@
+body {
+text-align: center;
+background-color:#043C6B;/*全体の背景色*/
+font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro', 'Meiryo UI', 'メイリオ', Verdana, 'ＭＳ Ｐゴシック', Osaka,Arial, Helvetica, sans-serif;
+font-size:12px;/*基本の文字サイズ*/
+line-height:1.2;
+color:#444444; /*基本の文字色*/
+margin:auto;
+width: 100%;
+}
+
+h1,h2,h3,p,div,ul,ol,li,dl,dd,dt,table,form,blockquote,pre,address{
+  margin : 0;
+  padding : 0;
+}
+
+/*共通デザイン*/
+/*IMGボーダー非表示*/
+img  {
+border: none;
+vertical-align:top;
+}
+
+/* float指定時利用 */
+.clearfix:after {
+ content: ".";
+ display: block;
+ height: 0;
+ line-height: 0;
+ clear: both;
+ visibility: hidden;
+}
+.clearfix { display: inline-block; }
+
+/* MacIE用 */
+*+html .clearfix { height: 1%; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+
+
+/*
+ul,li  {
+margin:0px;
+padding:0px;
+list-style:none;
+}
+*/
+
+/*タイトル文字*/
+h1 {
+font-size:40px;
+line-height:1.2;
+color:#ffffff;
+font-weight:bold ;
+margin:0;
+padding:0;
+position:absolute; top:40px; left:60px;
+}
+
+/* タイトル下のテキスト文字サイズ*/
+h2{
+font-size:12px; 
+line-height:2;
+font-weight:normal;
+margin:0px;
+padding:0px 10px
+}
+
+p {
+padding: 0px;
+margin: 5px 0px;
+}
+
+
+/*画面サイズ*/
+#content {
+  text-align: left;
+  width:962px;
+  margin:0px auto;
+  background-color:#FFFFFF;
+}  
+
+/*左メニュー設定*/  
+#index-left {
+  width:230px;
+  float:left;
+  margin-left:0px;
+  margin-top:0px;  
+}
+
+#menu {
+  margin:auto;
+  line-height:1;
+  color:#333399; /*基本の文字色*/
+}
+
+#menu ul {
+margin:0px;
+padding:0px;
+list-style:none;
+}
+
+#menu li a {  
+     display:block;
+     margin:0px;  
+     padding:5px 10px;  
+     background:#EEEEEE;  
+     line-height:2;  
+     border-bottom:solid 1px #9d9d9d;
+     text-decoration:none;
+     font-weight:bold;
+ }  
+
+#menu li a:hover { 
+     background:#9999FF;
+     color: #FFFFFF;
+ }  
+
+#menu li p {
+     display:block;  
+     padding:5px 10px;  
+     background:#EEEEEE;    
+     line-height:2;  
+     border-bottom:solid 1px #9d9d9d;
+     text-decoration:none;  
+     margin:0;
+     font-weight:bold;
+ }  
+
+#menu li ul li a {  
+     background:#EEEEEE;    
+     border-bottom:solid 1px #9d9d9d;
+     padding:5px 20px;   
+ }  
+
+#menu li ul li a:hover { 
+     background:#9999FF;
+     color:#FFFFFF;
+ }  
+
+
+/*右メニュー設定*/
+#index-right {
+  width:230px;
+  float:right;
+  margin-right:0px;
+  margin-top:0px;
+  height: 100%;
+}
+
+#whatsnew {
+  width:220px;
+  float:right;
+  margin-right:4px;
+  margin-top:4px;
+  border: 1px #9d9d9d solid;
+  background:#EEEEEE;
+  text-align:center;
+}
+
+#whatsnew_cont {
+  width:220px;
+  float:right;
+  margin-right:4px;
+  margin-top:4px;
+  line-height:1.5;
+  list-style: none;
+}
+
+#whatsnew_cont ul {
+  margin: 0px;
+  padding: 0px;
+  list-style:none;
+}
+
+#twitter {
+  width:220px;
+  float:right;
+  margin-right:4px;
+  margin-top:4px;
+  border: 1px #9d9d9d solid;
+  background:#EEEEEE;
+  text-align:center;
+}
+
+#twitter_cont {
+  width:220px;
+  float:right;
+  margin-right:4px;
+  margin-top:4px;
+  line-height:1.5;
+}
+
+#twitter_cont ul {
+  margin: 0px;
+  padding: 0px;
+  list-style:none;
+}
+
+/*中央コンテンツ設定*/
+#main {
+  width:500px;
+  margin:0px auto;
+  border-right: 1px #9d9d9d solid;
+  border-left: 1px #9d9d9d solid;
+}
+
+#main_pict {
+  width:500px;
+  margin:0px;
+  line-height:1;
+}
+
+#main_cont {
+  width:490px;
+  margin:0px 5px;
+  line-height:1;
+  padding:5px 0px;
+  height:auto;
+}
+
+
+/*ヘッダー設定*/
+#header_pict {
+  margin:0px;
+  background-color:#FFC473;
+  width:962px;
+}
+
+#header_cont {
+  margin:0px;
+  background-color:#FFC473;
+  border-bottom:#9d9d9d solid 1px;
+  width:100%;
+  padding:5px 0px;
+}
+
+/*ヘッダー下のパンくず
+#navi {
+background-color:#FFFFFF;
+text-align:left;
+margin:0px;
+border-bottom:#9d9d9d solid 1px;
+width:100%;
+line-height:200%;
+}
+*/
+
+/*フッター設定*/
+#footer {
+  margin:0px;
+  padding:0px;
+  background-color: #FFC473;
+  border-bottom: #9d9d9d solid 1px;
+  width: 100%;
+  clear : both;
+}
+
+#footer p {
+   line-height:1.2;
+   font-family:Osaka,Verdana,Arial,Helvetica,sans-serif;
+   font-weight:normal;
+   margin:0px;
+   padding:5px 0px;
+   text-align:center;
+}
+ 
+/*サムネイル表示*/
+
+ul.thumbnail { 
+	list-style-type: none;
+	padding: 0px;
+	margin:3px 0px 3px 3px;
+	 }
+
+ul.thumbnail li {
+ float: left;
+ margin: 2px;
+ height: 100%;
+}
+ul.thumbnail li img {
+ width: 105px;
+ height: 80px;
+}
+ul.thumbnail li a { display: block; }
+
+
+/* 魚詳細ページコンテンツ設定 */
+#name {
+  width:500px;
+  margin:0px auto;
+  }
+  
+#name p {
+   line-height:2;
+   font-family:Osaka,Verdana,Arial,Helvetica,sans-serif;
+   font-weight:normal;
+   margin:0px;
+   padding:5px 5px;
+   color:#444444;
+}
+
+table#detail {
+  width:490px;
+  margin:0px auto;
+  border: 0px;
+  }
+
+table#detail th {
+    padding: 5px;
+    border: 0px;
+    line-height: 1;
+    text-align: left;
+    }
+    
+table#detail td {
+    padding: 5px;
+    border: 0px;
+    line-height: 1;
+    text-align: left;
+    }
+
+#pictbox {
+  width: 490px;
+  margin: 0;
+  border: 0;
+  }
+
+#pictbox ul {
+  list-style: none;
+  margin: 0;
+  padding:0;
+  }
+
+#pictbox li  {
+     padding:5px;   
+     margin:0;
+ } 
+
+#pictbox li p {
+     display:block;  
+     padding:0px;  
+     line-height:2;  
+     text-decoration:none;  
+     margin:0;
+     font-weight:bold;
+ }  
+ 
+
+/*まだ未使用*/
+/*TABLEボーダー非表示*/
+table  {
+border:none;
+}
+
+
+/*IE--BRバグ回避*/
+br  {
+letter-spacing:normal;
+}
+
+
+/*普通のテキストリンク-----------------*/
+a:link    {text-decoration:underline;color:#333399;}  /*テキストリンクの色*/
+a:visited {text-decoration:underline;color:#333399;}  /*訪問済みのリンクの色*/ 
+a:active  {text-decoration:underline;color:#333399;}   /*クリック時のリンクの色*/
+a:hover   {text-decoration:underline;color:#333399;}  /*マウスの上にカーソルがあるときのリンクの色*/
+
+
+
+/*ページのタイトル部分のみのテキストリンク-----------------*/
+h1 a:link       {color:#444444;text-decoration:none;}  /*メニュー・テキストリンクの色*/
+h1 a:visited    {color:#444444;text-decoration:none;}   /*メニュー・訪問済みのリンクの色*/
+h1 a:active     {color:#444444;text-decoration:underline;}   /*メニュー・クリック時のリンクの色*/
+h1 a:hover      {color:#444444;text-decoration:underline;}   /*メニュー・マウスの上にカーソルがあるときのリンクの色*/
+
+
+.space15{
+width:15px;
+}
+
+.bar {
+background-color:#CCC8E1; /*トップお知らせ部分の背景色*/
+padding:6px;
+margin-bottom:15px;
+} 
+
+
+.waku {
+border:#bbbbbb 1px solid; /*枠線の設定*/
+} 
+
+.space20{
+　　　margin-bottom:20px;
+}

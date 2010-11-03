@@ -3,10 +3,7 @@
 <table>
   <tr>
     <th>Pic</th>
-    <th>Name</th>
-    <th>Dive site</th>
     <th>Pict date</th>
-    <th>Tags</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,11 +11,8 @@
 
 <% @pictures.each do |picture| %>
   <tr>
-    <td><%= picture.pic_id %></td>
-    <td><%= picture.name %></td>
-    <td><%= picture.dive_site %></td>
-    <td><%= picture.pict_date %></td>
-    <td><%= picture.tags %></td>
+    <td><%= picture.pictid %></td>
+    <td><%= picture.pictdate %></td>
     <td><%= link_to 'Show', picture %></td>
     <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
     <td><%= link_to 'Destroy', picture, :confirm => 'Are you sure?', :method => :delete %></td>

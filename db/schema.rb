@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101022160617) do
+ActiveRecord::Schema.define(:version => 20101029061156) do
 
   create_table "areas", :force => true do |t|
     t.string   "areaname"
@@ -25,12 +25,14 @@ ActiveRecord::Schema.define(:version => 20101022160617) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "genre_id"
   end
 
   create_table "divesites", :force => true do |t|
     t.string   "pointname"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "area_id"
   end
 
   create_table "genres", :force => true do |t|
@@ -43,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20101022160617) do
     t.date     "logdate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "divesite_id"
   end
 
   create_table "pictures", :force => true do |t|
@@ -51,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20101022160617) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "divesite_id"
+    t.string   "picturl"
   end
 
   create_table "tags", :force => true do |t|
