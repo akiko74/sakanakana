@@ -2,11 +2,11 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.xml
 
-  def originalpict
-    @picture=Picture.find(params[:id])
-    raise ActiveRecord::RecordNotFound unless @picture.originalpict_exist?
-    send_file(@picture.originalpict_filepath)
-  end
+#  def originalpict
+#    @picture=Picture.find(params[:id])
+#    raise ActiveRecord::RecordNotFound unless @picture.originalpict_exist?
+#    send_file(@picture.originalpict_filepath)
+#  end
 
   def index
     @pictures = Picture.all
@@ -47,7 +47,7 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.xml
   def create
-    @picture = Picture.new(params[:picture])
+    @picture = Picture.create(params[:picture])
 
     respond_to do |format|
       if @picture.save

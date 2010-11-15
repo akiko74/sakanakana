@@ -11,12 +11,10 @@
 </p>
 
 <p>
-<% if @picture.originalpict_exist? %>
-<%= image_tag @picture.public_originalpict_filepath %>
+<%= image_tag @picture.image.url(:medium) %>
+<%= image_tag @picture.image.url(:thumb) %>
 </p>
-
 
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Back', pictures_path %>
 
-<% end %>

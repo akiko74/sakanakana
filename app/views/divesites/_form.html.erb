@@ -11,9 +11,11 @@
     </div>
   <% end %>
 
+
   <div class="field">
-    <%= f.label :point %><br />
-    <%= f.text_field :point %>
+    <%= f.label :pointname %><br />
+    <%= f.text_field :pointname %>
+    <%= collection_select(:divesite, :area_id, Area.all, :id, :areaname) %>
   </div>
   <div class="actions">
     <%= f.submit %>

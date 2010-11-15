@@ -10,7 +10,7 @@
 
 <% @areas.each do |area| %>
   <tr>
-    <td><%= area.name %></td>
+    <td><%= area.areaname %></td>
     <td><%= link_to 'Show', area %></td>
     <td><%= link_to 'Edit', edit_area_path(area) %></td>
     <td><%= link_to 'Destroy', area, :confirm => 'Are you sure?', :method => :delete %></td>

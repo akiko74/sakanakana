@@ -1,5 +1,3 @@
-<h1>Listing divesites</h1>
-
 <table>
   <tr>
     <th>Point</th>
@@ -10,7 +8,7 @@
 
 <% @divesites.each do |divesite| %>
   <tr>
-    <td><%= divesite.point %></td>
+    <td><%= divesite.pointname %></td>
     <td><%= link_to 'Show', divesite %></td>
     <td><%= link_to 'Edit', edit_divesite_path(divesite) %></td>
     <td><%= link_to 'Destroy', divesite, :confirm => 'Are you sure?', :method => :delete %></td>

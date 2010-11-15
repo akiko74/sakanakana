@@ -8,6 +8,10 @@ gem 'rails', '3.0.0'
 gem 'mysql2'
 gem 'ruby-debug',:require=>nil
 
+#画像縮小用
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
+
+#
 # Use unicorn as the web server
 # gem 'unicorn'
 

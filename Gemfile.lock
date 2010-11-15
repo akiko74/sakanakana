@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 001f67210e69d2130051cbabb552f078dafb3b9e
+  specs:
+    paperclip (2.3.5)
+      activerecord
+      activesupport
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -77,5 +85,6 @@ PLATFORMS
 
 DEPENDENCIES
   mysql2
+  paperclip!
   rails (= 3.0.0)
   ruby-debug

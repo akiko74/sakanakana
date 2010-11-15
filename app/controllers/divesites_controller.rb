@@ -80,4 +80,9 @@ class DivesitesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def generate_area_list
+    @areas = Area.find.all
+  end
+
 end

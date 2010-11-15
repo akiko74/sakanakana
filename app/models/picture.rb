@@ -4,6 +4,7 @@ class Picture < ActiveRecord::Base
   belongs_to :divesite
   attr_accessor :originalpict
   after_save :create_originalpict
+  has_attached_file :image, :styles => { :medium => "500x381>", :thumb => "105x80>" }
 
   def originalpict_exist?
      File.exist?(originalpict_filepath)
