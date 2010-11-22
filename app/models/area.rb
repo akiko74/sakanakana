@@ -1,3 +1,3 @@
 class Area < ActiveRecord::Base
-  has_many :divesite
+  has_many :divesites
 end

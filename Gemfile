@@ -11,6 +11,9 @@ gem 'ruby-debug',:require=>nil
 #画像縮小用
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 
+#Twitter表示用
+gem 'twitter'
+
 #
 # Use unicorn as the web server
 # gem 'unicorn'

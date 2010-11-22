@@ -1,8 +1,8 @@
 class CreateLogs < ActiveRecord::Migration
   def self.up
     create_table :logs do |t|
-      t.date :log
-
+      t.date :logdate, :null => false
+      t.integer :divesite_id, :null => false
       t.timestamps
     end
   end

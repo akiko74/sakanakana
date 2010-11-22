@@ -1,3 +1,3 @@
 class Genre < ActiveRecord::Base
-  has_many :detail
+  has_many :details
 end

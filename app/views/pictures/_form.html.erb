@@ -15,10 +15,15 @@
     <%= f.label :pictid %><br />
     <%= f.text_field :pictid %>
   </div>
-<!--ポイントを選択する
+
   <div class="field">
-    <# %= f.label :divesite %><br />
-    <# %= f.text_field :divesite %>
+    <%= f.label :divesite %><br />
+    <%= collection_select(:picture, :divesite_id, Divesite.all, :id, :pointname) %>
+  </div>
+<!--
+  <div class="field">
+    <#%= f.label :detail %><br />
+    <#%= collection_select(:picture, :detail_id, Detail.all, :id, :name) %>
   </div>
 --!>
   <div class="field">

@@ -10,58 +10,68 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101028155607) do
+ActiveRecord::Schema.define(:version => 20101122052031) do
 
   create_table "areas", :force => true do |t|
-    t.string   "areaname"
+    t.string   "areaname",   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "details", :force => true do |t|
-    t.string   "name"
-    t.string   "ename"
-    t.string   "oname"
+    t.string   "name",        :null => false
+    t.string   "englishname"
+    t.string   "othername"
     t.text     "description"
+    t.integer  "genre_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "genre_id"
+  end
+
+  create_table "details_pictures", :id => false, :force => true do |t|
+    t.integer "detail_id"
+    t.integer "picture_id"
   end
 
   create_table "divesites", :force => true do |t|
-    t.string   "pointname"
+    t.string   "pointname",  :null => false
+    t.integer  "area_id",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "area_id"
   end
 
   create_table "genres", :force => true do |t|
-    t.string   "genrename"
+    t.string   "genrename",  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "logs", :force => true do |t|
-    t.date     "logdate"
+    t.date     "logdate",     :null => false
+    t.integer  "divesite_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "divesite_id"
   end
 
   create_table "pictures", :force => true do |t|
-    t.string   "pictid"
-    t.datetime "pictdate"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "divesite_id"
+    t.integer  "picid",              :null => false
+    t.datetime "pictdate",           :null => false
+    t.integer  "divesite_id",        :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
-    t.integer  "image_file_size"
+    t.integer  "inage_file_size"
     t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pictures_tags", :id => false, :force => true do |t|
+    t.integer "picture_id"
+    t.integer "tag_id"
   end
 
   create_table "tags", :force => true do |t|
-    t.string   "tagname"
+    t.string   "tagname",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

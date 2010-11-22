@@ -21,6 +21,11 @@ class DetailsController < ApplicationController
     end
   end
 
+  def search
+    @detail = Detail :conditions => ["name Like ?", params[:detail][:name]+ '%' ]
+    @keyword =params[:detail][:name]
+  end
+
   # GET /details/new
   # GET /details/new.xml
   def new

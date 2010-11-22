@@ -1,12 +1,13 @@
 class CreatePictures < ActiveRecord::Migration
   def self.up
     create_table :pictures do |t|
-      t.integer :pic_id
-      t.string :name
-      t.string :dive_site
-      t.datetime :pict_date
-      t.string :tags
-
+      t.integer :picid, :null =>false
+      t.datetime :pictdate, :null =>false
+      t.integer :divesite_id, :null =>false
+      t.string :image_file_name
+      t.string :image_content_type
+      t.integer :inage_file_size
+      t.datetime :image_updated_at
       t.timestamps
     end
   end

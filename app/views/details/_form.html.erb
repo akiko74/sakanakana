@@ -17,11 +17,15 @@
   </div>
   <div class="field">
     <%= f.label :ename %><br />
-    <%= f.text_field :ename %>
+    <%= f.text_field :ename %><br />
   </div>
   <div class="field">
     <%= f.label :oname %><br />
     <%= f.text_field :oname %>
+  </div>
+  <div class="field">
+    <%= f.label :種類 %><br />
+    <%= collection_select(:detail, :genre_id, Genre.all, :id, :genrename) %>  
   </div>
   <div class="field">
     <%= f.label :description %><br />

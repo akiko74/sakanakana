@@ -1,3 +1,7 @@
+<%= form_tag(:action => search %>
+ <%= text_field :detail, :name, :value => @keyword %>
+ <%= submit_tag("Search") %>
+
 <table>
   <tr>
     <th>Name</th>
