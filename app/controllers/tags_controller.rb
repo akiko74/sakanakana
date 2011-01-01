@@ -73,6 +73,7 @@ class TagsController < ApplicationController
   # DELETE /tags/1.xml
   def destroy
     @tag = Tag.find(params[:id])
+    @tag.pictures.delete
     @tag.destroy
 
     respond_to do |format|

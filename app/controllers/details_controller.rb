@@ -1,9 +1,11 @@
 class DetailsController < ApplicationController
   # GET /details
   # GET /details.xml
-  def index
-    @details = Detail.all
-
+  def index 
+   @details= Detail.scoped
+    unless params[:keyword].blank?
+     @details = Detail.find(:all, :conditions => ["name like ?", '%' + params[:keyword] + "%"])
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @details }
@@ -19,11 +21,6 @@ class DetailsController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @detail }
     end
-  end
-
-  def search
-    @detail = Detail :conditions => ["name Like ?", params[:detail][:name]+ '%' ]
-    @keyword =params[:detail][:name]
   end
 
   # GET /details/new
@@ -78,6 +75,7 @@ class DetailsController < ApplicationController
   # DELETE /details/1.xml
   def destroy
     @detail = Detail.find(params[:id])
+    @detail.pictures.delete
     @detail.destroy
 
     respond_to do |format|

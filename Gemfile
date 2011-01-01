@@ -14,6 +14,8 @@ gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 #Twitter表示用
 gem 'twitter'
 
+#Exifコントロール用
+gem 'exifr', :git => 'git://github.com/remvee/exifr.git'
 #
 # Use unicorn as the web server
 # gem 'unicorn'

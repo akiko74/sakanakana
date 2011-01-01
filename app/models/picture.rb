@@ -1,29 +1,28 @@
+require 'exifr'
 class Picture < ActiveRecord::Base
   has_and_belongs_to_many :details
   has_and_belongs_to_many :tags
-  belongs_to :divesite
-  attr_accessor :originalpict
-  after_save :create_originalpict
+  belongs_to :divelog
+  has_one :divesite, :through => :divelog
+  has_one :exif
+
   has_attached_file :image, :styles => { :medium => "500x381>", :thumb => "105x80>" }
 
-  def originalpict_exist?
-     File.exist?(originalpict_filepath)
-  end
+  after_save :process_exif
 
-  def originalpict_filepath
-    "#{Rails.root}/img/picturl/#{self.id}.jpg"
-  end
+    def process_exif
+      file = self.image.path
+        exif = EXIFR::JPEG.new file
+        pic_exif = self.build_exif
+            pic_exif.camera_brand = exif.make
+            pic_exif.camera_model = exif.model
+            pic_exif.shot_date_time = exif.date_time
+        pic_exif.save
+      end
 
-  def create_originalpict
-    return if self.originalpict.blank?
-    debugger
-    FileUtils.mkdir_p(File.dirname(originalpict_filepath))
-    FileUtils.cp(originalpict.path, originalpict_filepath)
-    true
-  end
-
-  def public_originalpict_filepath
-    "/pictures/#{self.id}/originalpict?#{updated_at.to_i}"
-  end
+#    def create
+#      detail = Detail.find(params[:detail_id])
+#      self.details << detail
+#    end
 
 end

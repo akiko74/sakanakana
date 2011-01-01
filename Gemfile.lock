@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/remvee/exifr.git
+  revision: 214224146b0c110677b7602944c68749c7cb040c
+  specs:
+    exifr (1.0.3)
+
+GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: 001f67210e69d2130051cbabb552f078dafb3b9e
   specs:
@@ -95,6 +101,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  exifr!
   mysql2
   paperclip!
   rails (= 3.0.0)

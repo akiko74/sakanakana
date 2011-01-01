@@ -32,7 +32,7 @@ class PicturesController < ApplicationController
   # GET /pictures/new.xml
   def new
     @picture = Picture.new
-
+    @detail = Detail.find(params[:detail_id])
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @picture }
@@ -43,11 +43,13 @@ class PicturesController < ApplicationController
   def edit
     @picture = Picture.find(params[:id])
   end
-
-  # POST /pictures
+  
   # POST /pictures.xml
   def create
     @picture = Picture.create(params[:picture])
+    @detail  = Detail.find(params[:detail_id])
+    @picture.details << @detail
+    @picture.tag_ids = params[:tag_ids]
 
     respond_to do |format|
       if @picture.save
@@ -59,6 +61,7 @@ class PicturesController < ApplicationController
       end
     end
   end
+
 
   # PUT /pictures/1
   # PUT /pictures/1.xml
@@ -80,6 +83,8 @@ class PicturesController < ApplicationController
   # DELETE /pictures/1.xml
   def destroy
     @picture = Picture.find(params[:id])
+    @picture.details.delete
+    @picture.tags.delete
     @picture.destroy
 
     respond_to do |format|

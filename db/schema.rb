@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101122052031) do
+ActiveRecord::Schema.define(:version => 20101209143103) do
 
   create_table "areas", :force => true do |t|
     t.string   "areaname",   :null => false
@@ -33,9 +33,25 @@ ActiveRecord::Schema.define(:version => 20101122052031) do
     t.integer "picture_id"
   end
 
+  create_table "divelogs", :force => true do |t|
+    t.date     "logdate",     :null => false
+    t.integer  "divesite_id", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "divesites", :force => true do |t|
     t.string   "pointname",  :null => false
     t.integer  "area_id",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exifs", :force => true do |t|
+    t.string   "camera_brand"
+    t.string   "camera_model"
+    t.datetime "shot_date_time"
+    t.integer  "picture_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,20 +62,12 @@ ActiveRecord::Schema.define(:version => 20101122052031) do
     t.datetime "updated_at"
   end
 
-  create_table "logs", :force => true do |t|
-    t.date     "logdate",     :null => false
-    t.integer  "divesite_id", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "pictures", :force => true do |t|
-    t.integer  "picid",              :null => false
-    t.datetime "pictdate",           :null => false
     t.integer  "divesite_id",        :null => false
+    t.integer  "divelog_id",         :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
-    t.integer  "inage_file_size"
+    t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"

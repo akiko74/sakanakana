@@ -1,5 +1,6 @@
 <h1>Listing pictures</h1>
 
+
 <table>
   <tr>
     <th>Pic</th>
@@ -11,15 +12,16 @@
 
 <% @pictures.each do |picture| %>
   <tr>
-    <td><%= picture.pictid %></td>
-    <td><%= picture.pictdate %></td>
+    <td><%= picture.image_file_name %></td>
+    <td><%= picture.image_updated_at %></td>
+    <td><% if picture.details.empty? %>
+  This part is not used in any assemblies</td>
+    <% end %>
     <td><%= link_to 'Show', picture %></td>
     <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
     <td><%= link_to 'Destroy', picture, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
 <% end %>
+</div>
 </table>
-
-<br />
 
 <%= link_to 'New Picture', new_picture_path %>

@@ -1,28 +1,27 @@
-<%= form_tag(:action => search %>
- <%= text_field :detail, :name, :value => @keyword %>
- <%= submit_tag("Search") %>
+<%= form_for :details, :html => {:method => :get } do |f| %>
+ <%= text_field_tag(:keyword)%>
+ <%= f.submit "Search" %>
+<% end %>
 
 <table>
   <tr>
     <th>Name</th>
-    <th>Ename</th>
-    <th>Oname</th>
+    <th>Englishname</th>
+    <th>Othername</th>
     <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @details.each do |detail| %>
   <tr>
     <td><%= detail.name %></td>
-    <td><%= detail.ename %></td>
-    <td><%= detail.oname %></td>
+    <td><%= detail.englishname %></td>
+    <td><%= detail.othername %></td>
     <td><%= detail.description %></td>
     <td><%= link_to 'Show', detail %></td>
     <td><%= link_to 'Edit', edit_detail_path(detail) %></td>
     <td><%= link_to 'Destroy', detail, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+    <td><%= link_to 'Picture', new_picture_path(:detail_id => detail.id) %></td> 
+</tr>
 <% end %>
 </table>
 
