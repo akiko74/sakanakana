@@ -5,6 +5,13 @@
   <%= @divesite.pointname %>
 </p>
 
+  <% @pictures.each do |picture| %>
+    <%= image_tag picture.image.url(:thumb) %> 
+  <% end %>
 
-<%= link_to 'Edit', edit_divesite_path(@divesite) %> |
+  <% @details.each do |detail| %>
+    <%= link_to detail.name, detail_path(:detail_id => detail.id) %>
+  <% end %>
+
+<%= link_to 'Edit', edit_divesite_path(@divesite) %>
 <%= link_to 'Back', divesites_path %>

@@ -8,6 +8,7 @@
 
 <% @divesites.each do |divesite| %>
   <tr>
+    <td><%= divesite.area.areaname %></td>
     <td><%= divesite.pointname %></td>
     <td><%= link_to 'Show', divesite %></td>
     <td><%= link_to 'Edit', edit_divesite_path(divesite) %></td>

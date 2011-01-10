@@ -10,8 +10,11 @@
 <%= @picture.exif.shot_date_time %>
 <p>
 <%= image_tag @picture.image.url(:medium) %>
-<%= image_tag @picture.image.url(:thumb) %>
 </p>
+
+<% @pictures.each do |pict| %>
+<%= image_tag pict.image.url(:thumb) %>
+<% end %>
 
 <%= link_to 'new_detail', :id => @picture.id %>
 <%= link_to 'Edit', edit_picture_path(@picture) %> |

@@ -1,26 +1,20 @@
-<h1>Listing pictures</h1>
 
+<p>
+  <写真を探す>
+</p>
 
+<p>
+  <最新の写真>
+</p>
 <table>
-  <tr>
-    <th>Pic</th>
-    <th>Pict date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @pictures.each do |picture| %>
   <tr>
-    <td><%= picture.image_file_name %></td>
-    <td><%= picture.image_updated_at %></td>
-    <td><% if picture.details.empty? %>
-  This part is not used in any assemblies</td>
-    <% end %>
+    <td><%= image_tag picture.image.url(:thumb) %></td>
     <td><%= link_to 'Show', picture %></td>
     <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
     <td><%= link_to 'Destroy', picture, :confirm => 'Are you sure?', :method => :delete %></td>
 <% end %>
+  </tr>
 </div>
 </table>
 

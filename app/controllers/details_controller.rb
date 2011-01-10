@@ -16,6 +16,8 @@ class DetailsController < ApplicationController
   # GET /details/1.xml
   def show
     @detail = Detail.find(params[:id])
+    @pictures = Picture.joins(:details).where('details.id' => params[:id])
+    @picture_first = Picture.joins(:details).where('details.id' => params[:id]).first
 
     respond_to do |format|
       format.html # show.html.erb

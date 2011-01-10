@@ -9,7 +9,7 @@ class PicturesController < ApplicationController
 #  end
 
   def index
-    @pictures = Picture.all
+    @pictures = Picture.limit(6)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -21,7 +21,12 @@ class PicturesController < ApplicationController
   # GET /pictures/1.xml
   def show
     @picture = Picture.find(params[:id])
-
+#    unless (params[:detail_id]).nil 
+     @pictures = Picture.joins(:details).where('details.id'=> params[:detail_id])
+#      @detail = Detail.find(params[:detail_id])
+#    else
+#      @detail = Detail.find(1)
+#    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @picture }
