@@ -10,7 +10,9 @@
   <% end %>
 
   <% @details.each do |detail| %>
-    <%= link_to detail.name, detail_path(:detail_id => detail.id) %>
+  <% @picture = detail.pictures.first %>
+    <%#= link_to detail.name, detail_path(:detail_id => detail.id) %>
+    <%= link_to detail.name, picture_path(:id => @picture.id, :detail_id => detail.id) %>
   <% end %>
 
 <%= link_to 'Edit', edit_divesite_path(@divesite) %>

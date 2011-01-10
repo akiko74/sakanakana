@@ -14,8 +14,10 @@
  </tr>
 
 <% @details.each do |detail| %>
+<% @picture = detail.pictures.first %>
  <tr>
-   <td><%= link_to detail.name, detail_path(:id => detail.id) %></td>
+   <td><%#= link_to detail.name, detail_path(:id => detail.id) %></td>
+   <td><%= link_to detail.name, picture_path(:id => @picture.id, :detail_id => detail.id) %></td>
  <% end %>
  </tr>
 
