@@ -1,0 +1,23 @@
+
+<table>
+  <tr>
+    <th>Divelog</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @divelogs.each do |divelog| %>
+  <tr>
+    <td><%= divelog.logdate %></td>
+    <td><%= divelog.divesite.pointname %>
+    <td><%= link_to 'Show', divelog %></td>
+    <td><%= link_to 'Edit', edit_divelog_path(divelog) %></td>
+    <td><%= link_to 'Destroy', divelog, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Divelog', new_divelog_path %>

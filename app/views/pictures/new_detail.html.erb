@@ -1,0 +1,5 @@
+<p>名前登録<p>
+<% form_for :detail, @detail, :url => {:action => 'create_detail', :id=> @picture.id } do |f| %>
+<%= f.select(:detail, :detail_id, Detail.all. :id, :name) %>
+<%= submit_tag "save" %>
+<% end %>

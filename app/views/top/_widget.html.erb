@@ -1,0 +1,31 @@
+<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 6000,
+  width: 220,
+  height: 400,
+  theme: {
+    shell: {
+      background: '#EEEEEE',
+      color: '#333399'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#444444',
+      links: '#333399'
+    }
+  },
+  features: {
+    scrollbar: true,
+    loop: false,
+    live: true,
+    hashtags: true,
+    timestamp: true,
+    avatars: false,
+    behavior: 'all'
+  }
+}).render().setUser('akiko74').start();
+</script>

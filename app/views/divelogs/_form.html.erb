@@ -1,0 +1,22 @@
+<%= form_for(@divelog) do |f| %>
+  <% if @divelog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@divelog.errors.count, "error") %> prohibited this divelog from being saved:</h2>
+
+      <ul>
+      <% @divelog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :logdate %><br />
+    <%= f.date_select :logdate %>
+    <%= collection_select (:divelog, :divesite_id, Divesite.all, :id, :pointname) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

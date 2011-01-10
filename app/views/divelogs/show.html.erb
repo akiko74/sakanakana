@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>ダイビングの日付:</b>
+  <%= @divelog.logdate %>
+  <b>ポイント:</b>
+  <%= @divelog.divesite.pointname %>
+</p>
+
+<% @pictures.each do |picture| %>
+ <tr>
+   <td><%= image_tag picture.image.url(:thumb) %></td>
+ <% end %>
+ </tr>
+
+<% @details.each do |detail| %>
+ <tr>
+   <td><%= link_to detail.name, detail_path(:id => detail.id) %></td>
+ <% end %>
+ </tr>
+
+<%= link_to 'Edit', edit_divelog_path(@divelog) %> |
+<%= link_to 'Back', divelogs_path %>
