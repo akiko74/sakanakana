@@ -17,8 +17,11 @@ class DetailsController < ApplicationController
   def show
     @detail = Detail.find(params[:id])
     @pictures = Picture.joins(:details).where('details.id' => params[:id])
-    @picture_first = Picture.joins(:details).where('details.id' => params[:id]).first
-
+    unless params[:picture_id].blank?
+      @picture_first = Picture.find(params[:picture_id])
+    else
+      @picture_first = Picture.joins(:details).where('details.id' => params[:id]).first
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @detail }

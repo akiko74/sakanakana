@@ -14,7 +14,7 @@ class AreasController < ApplicationController
   # GET /areas/1.xml
   def show
     @area = Area.find(params[:id])
-
+    @divesites = Divesite.where(:area_id => params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @area }

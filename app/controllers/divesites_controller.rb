@@ -14,9 +14,8 @@ class DivesitesController < ApplicationController
   # GET /divesites/1.xml
   def show
     @divesite = Divesite.find(params[:id])
-    @pictures = @divesite.pictures
+    @pictures = @divesite.pictures.joins(:details)
     @details = Detail.joins(:pictures).where('pictures.id' => @pictures.map{|p| p.id}).uniq
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @divesite }

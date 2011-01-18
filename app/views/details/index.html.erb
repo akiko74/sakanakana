@@ -19,7 +19,7 @@
     <td><%= detail.description %></td>
    <% picture = detail.pictures.first %>
    <% unless  picture.nil? %>
-    <td><%= link_to 'Picture', picture_path(:id => picture.id, :detail_id => detail.id) %></td>
+    <td><%= link_to 'Show', detail %></td>
    <% end %>
     <td><%= link_to 'Edit', edit_detail_path(detail) %></td>
     <td><%= link_to 'Destroy', detail, :confirm => 'Are you sure?', :method => :delete %></td>

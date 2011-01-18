@@ -3,6 +3,12 @@
 <p>
   <b>Name:</b>
   <%= @area.areaname %>
+  <b>Point:</b>
+  <% @divesites.each do |divesite| %>
+  <tr>
+  <td><%= link_to divesite.pointname, divesite_path(:id => divesite.id) %></br></td>
+  </tr>
+  <% end %>
 </p>
 
 
