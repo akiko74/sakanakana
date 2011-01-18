@@ -3,7 +3,8 @@ class Picture < ActiveRecord::Base
   has_and_belongs_to_many :details
   has_and_belongs_to_many :tags
   belongs_to :divelog
-  has_one :divesite, :through => :divelog
+#  has_one :divesite, :through => :divelog
+  belongs_to :divesite
   has_one :exif
 
   has_attached_file :image, :styles => { :medium => "500x381>", :thumb => "105x80>" }

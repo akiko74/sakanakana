@@ -25,9 +25,15 @@
 <% @pictures.each do |picture| %>
   <tr>  
     <td><%= image_tag picture.image.url(:thumb) %></td>
-    <td><%= picture.divesite.pointname %>
   <% end %>
   </tr>
- 
+
+
+<% @divesites.each do |d| %>
+  <tr>  
+    <td><%= link_to d.pointname, divesite_path(:id => d.id) %>
+  <% end %>
+  </tr>
+
 <%= link_to 'Edit', edit_detail_path(@detail) %> |
 <%= link_to 'Back', details_path %>

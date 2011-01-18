@@ -22,6 +22,7 @@ class DetailsController < ApplicationController
     else
       @picture_first = Picture.joins(:details).where('details.id' => params[:id]).first
     end
+    @divesites = Divesite.joins(:pictures).where('pictures.id' => @pictures.map{|p| p.id}).uniq
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @detail }
