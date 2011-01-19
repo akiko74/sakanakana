@@ -10,8 +10,8 @@
 
 <% @genres.each do |genre| %>
   <tr>
-    <td><%= genre.name %></td>
-    <td><%= link_to 'Show', genre %></td>
+    <td><%= genre.genrename %></td>
+    <td><%= link_to 'Show', details_path(:genre_id => genre.id) %></td>
     <td><%= link_to 'Edit', edit_genre_path(genre) %></td>
     <td><%= link_to 'Destroy', genre, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

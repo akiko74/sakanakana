@@ -6,6 +6,9 @@ class DetailsController < ApplicationController
     unless params[:keyword].blank?
      @details = Detail.find(:all, :conditions => ["name like ?", '%' + params[:keyword] + "%"])
     end
+    unless params[:genre_id].blank?
+      @details = Detail.where('genre_id' => params[:genre_id])
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @details }

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+ <% unless @picture_first.blank? %>
  <%= image_tag @picture_first.image.url(:medium)  %>
-
+ <% end %>
 <p>
   <b>Name:</b>
   <%= @detail.name %>
@@ -22,11 +22,14 @@
   <%= @detail.description %>
 </p>
 
+
+<% unless @pictures.blank? %>
 <% @pictures.each do |picture| %>
   <tr>  
     <td><%= image_tag picture.image.url(:thumb) %></td>
   <% end %>
   </tr>
+<% end %>
 
 
 <% @divesites.each do |d| %>
