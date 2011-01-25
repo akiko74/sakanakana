@@ -16,10 +16,9 @@
 <div id="main">
  <div id="main_pict">
   <div class="slideshow">
-    <img src="images/top_image.jpg" />
-    <img src="images/05.jpg" />
-    <img src="images/06.jpg" />
-    <img src="images/07.jpg" />
+    <% @pictures.each do |picture| %>
+     <%= image_tag picture.image.url(:medium) %>
+    <% end %> 
   </div>
  </div>
  <div id="main_cont">
