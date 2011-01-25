@@ -16,6 +16,10 @@ gem 'twitter'
 
 #Exifコントロール用
 gem 'exifr', :git => 'git://github.com/remvee/exifr.git'
+
+#JQuery
+gem 'jquery-rails'
+
 #
 # Use unicorn as the web server
 # gem 'unicorn'

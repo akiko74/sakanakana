@@ -8,6 +8,7 @@ class DetailsController < ApplicationController
     end
     unless params[:genre_id].blank?
       @details = Detail.where('genre_id' => params[:genre_id])
+      @genre = Genre.find(params[:genre_id])
     end
     respond_to do |format|
       format.html # index.html.erb

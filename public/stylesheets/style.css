@@ -205,6 +205,17 @@ list-style:none;
   border-left: 1px #9d9d9d solid;
 }
 
+.slideshow {
+  width: 500px; 
+  margin:0px;
+}
+
+.slideshow img {
+  width:500px;
+  height: 375px;
+}
+
+
 #main_pict {
   width:500px;
   margin:0px;
