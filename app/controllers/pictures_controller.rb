@@ -47,6 +47,7 @@ class PicturesController < ApplicationController
   # GET /pictures/1/edit
   def edit
     @picture = Picture.find(params[:id])
+    @pictures = Picture.joins(:details).where('details.id'=> params[:detail_id])
   end
   
   # POST /pictures.xml

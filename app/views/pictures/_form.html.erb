@@ -26,11 +26,11 @@
     <%= f.file_field :image %>
   </div>
 
+<!--  <div>
+    <%#=f.label :detail_name %>
+    <input name="detail_id" type="hidden" value="<%#= @detail.id %>">
   <div>
-    <%=f.label :detail_name %>
-    <input name="detail_id" type="hidden" value="<%= @detail.id %>">
-  <div>
-
+--!>
   <%= f.label :tag_name %><br />
     <% Tag.all.each do |tag| %>
    <input type="checkbox" 

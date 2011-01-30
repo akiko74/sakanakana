@@ -4,21 +4,12 @@
 <title>タオ島、他ダイビングスポットで出会った魚たち</title>
 <!--  <%= stylesheet_link_tag :all %> --!>
   <%= stylesheet_link_tag 'style' %>
-  <%= javascript_include_tag 'jquery.min' %>
-  <%= javascript_include_tag 'jquery' %>
-  <%= javascript_include_tag 'jquery.cycle.min' %>
+  <%= javascript_include_tag(:defaults) %>
+  <%= javascript_include_tag 'jquery.cycle.all' %>
   <%= javascript_include_tag 'rails' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
 
-<script type="text/javascript">
-  $(document).ready(function(){
-      $('.slideshow').cycle({
-      fx: 'fade',
-      speed: 4000
-        });
-    });
-  </script>
 </head>
 
 <body>

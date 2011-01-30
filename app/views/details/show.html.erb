@@ -1,7 +1,43 @@
+<script type="text/javascript">
+$(function(){
+  var $container = $('.slideshow').cycle({
+    speed: 300,
+    autostop: 1,
+    autostopCount: 1
+  });
+
+  var obj= $('#thumbnail img');
+  $container.children().each(function(i){
+    $(obj[i]).css('cursor', 'pointer').click(function(){
+        $container.cycle(i);
+        return false;
+    });
+  });
+});
+</script>
+
 <p id="notice"><%= notice %></p>
- <% unless @picture_first.blank? %>
- <%= image_tag @picture_first.image.url(:medium)  %>
- <% end %>
+
+<% unless @picture_first.blank? %>
+    <tr>  
+       <div class="slideshow")
+          <td>
+              <%= image_tag @picture_first.image.url(:medium) %>
+              <% @pictures.each do |picture| %>
+              <%= image_tag picture.image.url(:medium) %>
+              <% end %>
+          </td>
+       </div>
+       <div id="thumbnail">
+          <td>
+              <%= image_tag @picture_first.image.url(:thumb) %>
+              <% @pictures.each do |picture| %>
+              <%= image_tag picture.image.url(:thumb) %>
+              <% end %>
+          </td>
+       </div>
+   </tr>
+<% end %>
 <p>
   <b>Genre:</b>
   <%= @detail.genre.genrename %>
@@ -11,6 +47,7 @@
   <b>Name:</b>
   <%= @detail.name %>
 </p>
+
 
 <p>
   <b>Ename:</b>
@@ -26,15 +63,6 @@
   <b>Description:</b>
   <%= @detail.description %>
 </p>
-
-
-<% unless @pictures.blank? %>
-<% @pictures.each do |picture| %>
-  <tr>  
-    <td><%= image_tag picture.image.url(:thumb) %></td>
-  <% end %>
-  </tr>
-<% end %>
 
 
 <% @divesites.each do |d| %>
