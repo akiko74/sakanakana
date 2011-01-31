@@ -20,7 +20,7 @@ $(function(){
 
 <% unless @picture_first.blank? %>
     <tr>  
-       <div class="slideshow")
+       <div class="slideshow">
           <td>
               <%= image_tag @picture_first.image.url(:medium) %>
               <% @pictures.each do |picture| %>

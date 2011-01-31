@@ -16,7 +16,6 @@ class DivelogsController < ApplicationController
     @divelog = Divelog.find(params[:id])
     @pictures = Picture.where(:divelog_id => params[:id])
     @details = Detail.joins(:pictures).where('pictures.id' =>@pictures.map{|p| p.id}).uniq
-#    @details = Detail.joins(:pictures).where('pictures.id' =>[23,24,25])
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @divelog }
