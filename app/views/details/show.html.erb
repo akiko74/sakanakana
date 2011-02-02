@@ -19,57 +19,59 @@ $(function(){
 <p id="notice"><%= notice %></p>
 
 <% unless @picture_first.blank? %>
-    <tr>  
+  <div id="index-right" class="clearfix">
+    <ul class="thumbnail">
+        <div id="thumbnail">
+           <li><%= image_tag @picture_first.image.url(:thumb) %></li>
+           <% @pictures.each do |picture| %>
+           <li><%= image_tag picture.image.url(:thumb) %></li>
+           <% end %>
+        </div>
+    </ul>
+  </div>
+
+  <div id="main">
+<%= link_to 'Back', details_path %>
+    <div id="main_pict">
        <div class="slideshow">
           <td>
-              <%= image_tag @picture_first.image.url(:medium) %>
-              <% @pictures.each do |picture| %>
-              <%= image_tag picture.image.url(:medium) %>
-              <% end %>
+             <%= image_tag @picture_first.image.url(:medium) %></li>
+             <% @pictures.each do |picture| %>
+             <li><%= image_tag picture.image.url(:medium) %></li>
+             <% end %>
           </td>
        </div>
-       <div id="thumbnail">
-          <td>
-              <%= image_tag @picture_first.image.url(:thumb) %>
-              <% @pictures.each do |picture| %>
-              <%= image_tag picture.image.url(:thumb) %>
-              <% end %>
-          </td>
-       </div>
-   </tr>
+    </div>
+   </div>
 <% end %>
-<p>
-  <b>Genre:</b>
-  <%= @detail.genre.genrename %>
-<p>
 
-<p>
-  <b>Name:</b>
-  <%= @detail.name %>
-</p>
-
-
-<p>
-  <b>Ename:</b>
-  <%= @detail.englishname %>
-</p>
-
-<p>
-  <b>Oname:</b>
-  <%= @detail.othername %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @detail.description %>
-</p>
-
+  <table id="detail">
+    <tr>
+     <th>Genre:</th>
+        <td><%= @detail.genre.genrename %></td>
+     </tr>
+     <tr>
+        <th>Name:</th>
+          <td><%= @detail.name %><td>
+     </tr>
+     <tr>
+        <th>Ename:</th>
+        <td><%= @detail.englishname %></td>
+     </tr>
+     <tr>
+      <th>Oname:</th>
+        <td><%= @detail.othername %></td>
+     </tr>
+     <tr>
+        <th>Description:</th>
+          <td><%= @detail.description %></td>
+     </tr> 
 
 <% @divesites.each do |d| %>
-  <tr>  
-    <td><%= link_to d.pointname, divesite_path(:id => d.id) %>
-  <% end %>
-  </tr>
+      <tr>  
+        <td><%= link_to d.pointname, divesite_path(:id => d.id) %>
+            <% end %>
+      </tr>
 
-<%= link_to 'Edit', edit_detail_path(@detail) %> |
-<%= link_to 'Back', details_path %>
+</table>
+</div>

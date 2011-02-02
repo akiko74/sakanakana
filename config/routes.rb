@@ -12,15 +12,18 @@ Sakana::Application.routes.draw do
   resources :details
 
   resources :pictures
-  
+
   root :to => "top#index"
 
+
+#  scope "/admin" do
+#     resources :details, :pictures, :areas, :divesites, :divelogs, :tags, :genres
+#  end
     
 #  resources :pictures do
 #    member do
 #      get 'originalpict' =>'pictures#originalpict'
 #    end
-  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -78,3 +81,5 @@ Sakana::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
+  #
+end

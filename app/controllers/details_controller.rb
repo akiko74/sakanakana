@@ -1,4 +1,8 @@
 class DetailsController < ApplicationController
+  skip_before_filter :require_login, :only => [:index, :show]
+
+
+
   # GET /details
   # GET /details.xml
   def index 
