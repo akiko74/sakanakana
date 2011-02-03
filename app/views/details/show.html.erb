@@ -47,26 +47,28 @@ $(function(){
 
   <table id="detail">
     <tr>
-     <th>Genre:</th>
+     <th>種別:</th>
         <td><%= @detail.genre.genrename %></td>
      </tr>
      <tr>
-        <th>Name:</th>
+        <th>名前:</th>
           <td><%= @detail.name %><td>
      </tr>
      <tr>
-        <th>Ename:</th>
+        <th>英名:</th>
         <td><%= @detail.englishname %></td>
      </tr>
      <tr>
-      <th>Oname:</th>
+      <th>別名:</th>
         <td><%= @detail.othername %></td>
      </tr>
      <tr>
-        <th>Description:</th>
+        <th>説明:</th>
           <td><%= @detail.description %></td>
      </tr> 
 
+      <tr>
+        <th>見られたポイント</th>
 <% @divesites.each do |d| %>
       <tr>  
         <td><%= link_to d.pointname, divesite_path(:id => d.id) %>

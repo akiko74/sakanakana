@@ -16,29 +16,33 @@ $(function(){
 });
 </script>
 
-<p id="notice"><%= notice %></p>
+<div id="index-right" class="clearfix">
+  <ul class="thumbnail">
+     <div id="thumbnail">
+      <% @pictures.each do |picture| %>
+      <li><%= image_tag picture.image.url(:thumb) %></li>
+      <% end %>
+     </div>
+  </ul>
+</div>
 
-<p>
-  <b>Point:</b>
+<div id="main">
+<p id="notice"><%= notice %></p>
+  <b>ポイント名:</b>
   <%= @divesite.pointname %>
 </p>
-
-  <div class="slideshow">
-   <td>
-      <% @pictures.each do |picture| %>
+　<div id="main_pict">
+    <div class="slideshow">
+       <td>
+         <% @pictures.each do |picture| %>
           <% @detail_first = picture.details.first %>
           <%= link_to image_tag(picture.image.url(:medium)), detail_path(:id => @detail_first.id, :picture_id => picture.id)  %> 
-      <% end %>
-   </td>
-  </div>
-  <div id="thumbnail">
-    <td>
-      <% @pictures.each do |picture| %>
-      <%= image_tag picture.image.url(:thumb) %> 
-      <% end %>
-    </td>
-  </div>
+         <% end %>
+        </td>
+     </div>
+   </div>
 
+  <div id="main_cont">
   <% @details.each do |detail| %>
   <% @picture = detail.pictures.first %>
     <%#= link_to detail.name, picture_path(:id => @picture.id, :detail_id => detail.id) %>
@@ -47,3 +51,5 @@ $(function(){
 
 <%= link_to 'Edit', edit_divesite_path(@divesite) %>
 <%= link_to 'Back', divesites_path %>
+   </div>
+</div>

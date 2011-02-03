@@ -1,10 +1,16 @@
-<table>
-  <tr>
-    <th>Point</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div id="index-right" class="clearfix">
+</div>
+
+<div id="main">
+  <div id="main_cont">
+    <table id="detail">
+      <tr>
+        <th>エリア名</th>
+        <th>ポイント名</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
 
 <% @divesites.each do |divesite| %>
   <tr>
@@ -20,3 +26,6 @@
 <br />
 
 <%= link_to 'New Divesite', new_divesite_path %>
+
+  </div>
+</div>
