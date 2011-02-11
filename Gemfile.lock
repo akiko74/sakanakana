@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: c9fe8885f92093065a58ca26b7aafea30875ee2d
+  specs:
+    devise (1.2.rc)
+      bcrypt-ruby (~> 2.1.2)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.0.3)
+
+GIT
   remote: git://github.com/remvee/exifr.git
   revision: 214224146b0c110677b7602944c68749c7cb040c
   specs:
@@ -44,6 +53,7 @@ GEM
     activesupport (3.0.0)
     arel (1.0.1)
       activesupport (~> 3.0.0)
+    bcrypt-ruby (2.1.4)
     builder (2.1.2)
     columnize (0.3.1)
     crack (0.1.8)
@@ -64,6 +74,7 @@ GEM
     multi_json (0.0.5)
     mysql2 (0.2.4)
     oauth (0.4.4)
+    orm_adapter (0.0.4)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -98,11 +109,14 @@ GEM
       multi_json (~> 0.0.4)
       oauth (~> 0.4.3)
     tzinfo (0.3.23)
+    warden (1.0.3)
+      rack (>= 1.0.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  devise!
   exifr!
   jquery-rails
   mysql2

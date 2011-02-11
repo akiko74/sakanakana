@@ -1,4 +1,6 @@
 Sakana::Application.routes.draw do
+  devise_for :admins
+
   resources :divelogs
 
   resources :divesites
@@ -14,6 +16,10 @@ Sakana::Application.routes.draw do
   resources :pictures
 
   root :to => "top#index"
+
+#for devise(redirect after login)
+  devise_for :admins
+  get 'admins', :to => 'top#index', :as => :admin_root
 
 
 #  scope "/admin" do

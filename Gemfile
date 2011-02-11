@@ -20,7 +20,9 @@ gem 'exifr', :git => 'git://github.com/remvee/exifr.git'
 #JQuery
 gem 'jquery-rails'
 
-#
+#devise認証用
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
