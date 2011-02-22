@@ -1,23 +1,15 @@
-<script type="text/javascript">
-$(function(){
-  var $container = $('.slideshow').cycle({
-    speed: 300,
-    autostop : 1,
-    autostopCount: 1
- });
-
-  var obj = $('#thumbnail img');
-  $container.children().each(function(i){
-    $(obj[i]).css('cursor', 'pointer').click(function(){
-        $container.cycle(i);
-        return false;
-    });
-  });
-});
-</script>
+<%= render 'layouts/javascript' %>
 
 <p id="notice"><%= notice %></p>
 
+<%= render 'layouts/rightthumb' %>
+
+<div id="main">
+  <div id="main_pict">
+
+<%= render 'layouts/mainpict' %>
+
+  <div id="maincont">
 <p>
   <b>ダイビングの日付:</b>
   <%= @divelog.logdate %>
@@ -25,20 +17,6 @@ $(function(){
   <%= @divelog.divesite.pointname %>
 </p>
 
-  <div class="slideshow")
-    <% @pictures.each do |picture| %>
-      <tr>
-       <td><%= image_tag picture.image.url(:medium) %></td>
-      </tr>
-    <% end %>
-  </div>
-  <div id="thumbnail">
-    <% @pictures.each do |picture| %>
-      <tr>
-       <td><%= image_tag picture.image.url(:thumb) %></td>
-      </tr>
-    <% end %>
-   </div>
 
 <% @details.each do |detail| %>
 <% @picture = detail.pictures.first %>
@@ -48,5 +26,6 @@ $(function(){
  <% end %>
  </tr>
 
-<%= link_to 'Edit', edit_divelog_path(@divelog) %> |
-<%= link_to 'Back', divelogs_path %>
+  </div>
+ </div>
+</div>

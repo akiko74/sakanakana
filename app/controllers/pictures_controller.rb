@@ -73,6 +73,7 @@ class PicturesController < ApplicationController
   # PUT /pictures/1.xml
   def update
     @picture = Picture.find(params[:id])
+    @picture.tag_ids = params[:tag_ids]
 
     respond_to do |format|
       if @picture.update_attributes(params[:picture])

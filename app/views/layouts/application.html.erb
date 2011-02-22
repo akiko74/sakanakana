@@ -1,7 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
   <head>
-<title>タオ島、他ダイビングスポットで出会った魚たち</title>
+    <!-- <title><%#= pagetitles() %></title> --!>
+    <title><%= content_for?(:title) ? yield(:title) : "タオ島、他ダイビングスポットで出会った魚たち" %></title>
+
 <!--  <%= stylesheet_link_tag :all %> --!>
   <%= stylesheet_link_tag 'style' %>
   <%= javascript_include_tag(:defaults) %>
@@ -13,40 +15,40 @@
 </head>
 
 <body>
-<div id="content">
+<div id="wrapper">
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
   <div id="header_pict">
-   <h1>ダイビング写真集</h1>
+     <h1><%= link_to 'ダイビング写真集', root_path %></h1>
    <img src="/images/sample_top.jpg">
   </div>
   <div id="header_cont">
    <h2>タイのタオ島を中心に、ダイビング中に出会った魚の写真を掲載しています</h2>
   </div>
-  <div id="index-left" class="clearfix">
+  <div id="index-left">
       <div id="menu">
         <ul>
-          <li><a href="http://www.yahoo.co.jp">ダイビングログ</a></li>
-          <li><a href="http://www.yahoo.co.jp">ポイント</a></li>
+          <li><%= link_to 'ダイビングログ', divelogs_path %></li>
+          <li><%= link_to 'ポイント名', divesites_path %></li>
           <li><p>写真を探す</p>
              <ul>
-               <li><a href="http://www.yahoo.co.jp/">名前で探す</a></li>
-               <li><a href="http://www.yahoo.co.jp/">種類で探す</a></li>
-               <li><a href="http://www.yahoo.co.jp/">タグで探す</a></li>
+               <li><%= link_to '名前で探す', details_path %></li>
+               <li><%= link_to '種類で探す', genres_path %></li>
+               <li><%= link_to 'タグで探す', tags_path %></li>
              </ul>
           </li>
-          <li><a href="http://www.yahoo.co.jp">動画を見る</a></li>
-          <li><a href="http://www.yahoo.co.jp">機材など</a></li>
-          <li><a href="http://www.yahoo.co.jp">お問い合わせ</a></li>
+          <li><a href="a">動画を見る</a></li>
+          <li><a href="a">機材など</a></li>
+          <li><a href="a">お問い合わせ</a></li>
         </ul>
       </div>
   </div>
 
   <%= yield %>
+</div>
 
-<div id="footer">
+  <div id="footer">
   <p>All Rights Reserved. 無断転載禁止</p>
-</div>
-</div>
+  </div>
 </body>
 </html>

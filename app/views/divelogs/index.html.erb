@@ -1,23 +1,28 @@
+<div id="index-right">
+</div>
+
+<div id="main">
+<h2>ダイブログ</h2>
 
 <table>
-  <tr>
-    <th>Divelog</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @divelogs.each do |divelog| %>
-  <tr>
-    <td><%= divelog.logdate %></td>
-    <td><%= divelog.divesite.pointname %>
-    <td><%= link_to 'Show', divelog %></td>
-    <td><%= link_to 'Edit', edit_divelog_path(divelog) %></td>
-    <td><%= link_to 'Destroy', divelog, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% @divelogs.each do |divelog| %>
+    <tr>
+      <td><%= divelog.logdate %></td>
+      <td><%= link_to divelog.divesite.pointname, divesite_path(:id=> divelog.divesite.id) %>
+        <% if admin_signed_in? %>
+          <td><%= link_to 'Edit', edit_divelog_path(divelog) %></td>
+          <td><%= link_to 'Destroy', divelog, :confirm => 'Are you sure?', :method => :delete %></td>
+        <% end %>
+    </tr>
+  <% end %>
 </table>
-
+<p>
+<%= will_paginate @divelogs %>
+</p>
 <br />
 
+<% if admin_signed_in? %>
 <%= link_to 'New Divelog', new_divelog_path %>
+<% end %>
+
+</div>

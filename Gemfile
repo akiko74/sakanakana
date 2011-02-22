@@ -23,6 +23,8 @@ gem 'jquery-rails'
 #devise認証用
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 
+gem "will_paginate", "~> 3.0.pre2"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

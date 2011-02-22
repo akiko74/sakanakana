@@ -2,7 +2,7 @@ class DivelogsController < ApplicationController
   # GET /divelogs
   # GET /divelogs.xml
   def index
-    @divelogs = Divelog.all
+    @divelogs = Divelog.paginate(:page => params[:page], :per_page =>2)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -3,29 +3,30 @@
 
 <div id="main">
   <div id="main_cont">
-    <table id="detail">
+    <table>
       <tr>
         <th>エリア名</th>
         <th>ポイント名</th>
-        <th></th>
-        <th></th>
-        <th></th>
       </tr>
 
 <% @divesites.each do |divesite| %>
   <tr>
     <td><%= divesite.area.areaname %></td>
-    <td><%= divesite.pointname %></td>
-    <td><%= link_to 'Show', divesite %></td>
+    <td><%= link_to divesite.pointname, divesite %></td>
+    <% if admin_signed_in? %>    
     <td><%= link_to 'Edit', edit_divesite_path(divesite) %></td>
     <td><%= link_to 'Destroy', divesite, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
+<% end %>
 </table>
+<%= will_paginate @divesites %>
 
 <br />
 
+<% if admin_signed_in? %>    
 <%= link_to 'New Divesite', new_divesite_path %>
+<% end %>
 
   </div>
 </div>

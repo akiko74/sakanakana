@@ -1,5 +1,8 @@
-<h1>Listing tags</h1>
+<div id="index-right" class="clearfix">
+</div>
 
+<div id="main">
+  <div id="main_cont">
 <table>
   <tr>
     <th>Tag</th>
@@ -12,12 +15,20 @@
   <tr>
     <td><%= tag.tagname %></td>
     <td><%= link_to 'Show', tag %></td>
+    <% if admin_signed_in? %>
     <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
     <td><%= link_to 'Destroy', tag, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
+<% end %>
+
+<% if admin_signed_in? %>
+<%= link_to 'New Tag', new_tag_path %>
+<% end %>
 </table>
 
+<%= will_paginate @tags %>
 <br />
 
-<%= link_to 'New Tag', new_tag_path %>
+</div>
+</div>

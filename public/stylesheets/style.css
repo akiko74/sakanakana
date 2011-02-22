@@ -10,7 +10,7 @@ width: 100%;
 }
 
 h1,h2,h3,p,div,ul,ol,li,dl,dd,dt,table,form,blockquote,pre,address{
-  margin : 0;
+  margin : auto;
   padding : 0;
 }
 
@@ -37,14 +37,6 @@ vertical-align:top;
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
 
-
-/*
-ul,li  {
-margin:0px;
-padding:0px;
-list-style:none;
-}
-*/
 
 /*タイトル文字*/
 h1 {
@@ -73,19 +65,30 @@ margin: 5px 0px;
 
 
 /*画面サイズ*/
+
+#wrapper {
+  width: 90%;
+  margin:0, auto;
+  overflow: hidden;
+} 
+
 #content {
   text-align: left;
-  width:962px;
+  width: 100%;
   margin:0px auto;
   background-color:#FFFFFF;
+  padding-bottom: 32768px;
+  margin-bottom: -32768px;
+
 }  
 
 /*左メニュー設定*/  
 #index-left {
   width:230px;
+  padding-bottom: 32768px;
+  margin-bottom: -32768px;
   float:left;
-  margin-left:0px;
-  margin-top:0px;  
+  background:#FFFFFF;
 }
 
 #menu {
@@ -146,6 +149,9 @@ list-style:none;
   margin-right:0px;
   margin-top:0px;
   height: 100%;
+  padding-bottom: 32768px;
+  margin-bottom: -32768px;
+  background:#FFFFFF;
 }
 
 #whatsnew {
@@ -197,34 +203,51 @@ list-style:none;
   list-style:none;
 }
 
+#thumbnail_box {
+  width:100%;
+  margin :1px;
+  border : 1px #9d9d9d solid;
+  background:#EEEEE;
+}
+
 /*中央コンテンツ設定*/
+
 #main {
-  width:500px;
-  margin:0px auto;
+  margin: 0px 230px;
   border-right: 1px #9d9d9d solid;
   border-left: 1px #9d9d9d solid;
+  padding-bottom: 32768px;
+  margin-bottom: -32768px;
+  background:#FFFFFF;
 }
 
 .slideshow {
-  width: 500px; 
-  margin:0px;
+  width: 100%; 
+  margin:auto;
 }
 
 .slideshow img {
-  width:500px;
-  height: 375px;
+  width:100%;
+  margin:auto;
 }
 
+.slideshowtop{
+  width:100%;
+  margin:auto;
+}
+
+.slideshowtop img{
+  width:100%;
+  margin:auto;
+}
 
 #main_pict {
-  width:500px;
-  margin:0px;
+  width:100%;
   line-height:1;
 }
 
 #main_cont {
-  width:490px;
-  margin:0px 5px;
+  width:100%;
   line-height:1;
   padding:5px 0px;
   height:auto;
@@ -235,7 +258,7 @@ list-style:none;
 #header_pict {
   margin:0px;
   background-color:#FFC473;
-  width:962px;
+  width:100%;
 }
 
 #header_cont {
@@ -246,24 +269,13 @@ list-style:none;
   padding:5px 0px;
 }
 
-/*ヘッダー下のパンくず
-#navi {
-background-color:#FFFFFF;
-text-align:left;
-margin:0px;
-border-bottom:#9d9d9d solid 1px;
-width:100%;
-line-height:200%;
-}
-*/
-
 /*フッター設定*/
 #footer {
-  margin:0px;
   padding:0px;
   background-color: #FFC473;
   border-bottom: #9d9d9d solid 1px;
-  width: 100%;
+  width: 90%;
+  margin:auto;
   clear : both;
 }
 
@@ -296,13 +308,17 @@ ul.thumbnail li img {
 ul.thumbnail li a { display: block; }
 
 
-/* 魚詳細ページコンテンツ設定 */
-#name {
-  width:500px;
-  margin:0px auto;
+/* 詳細ページコンテンツ設定 */
+#main h2 {
+  margin:auto;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 12px;
+  font-height: 1.5;
+  text-align:left;
   }
   
-#name p {
+#main name p {
    line-height:2;
    font-family:Osaka,Verdana,Arial,Helvetica,sans-serif;
    font-weight:normal;
@@ -311,25 +327,27 @@ ul.thumbnail li a { display: block; }
    color:#444444;
 }
 
-table#detail {
-  width:490px;
-  margin:0px auto;
+#main table {
+  width: 100%;
+  margin:2px;
   border: 0px;
+  padding: 0px;
   }
 
-table#detail th {
-    padding: 5px;
+#main table tr, td {
+    padding: 2px;
     border: 0px;
     line-height: 1;
     text-align: left;
     }
-    
-table#detail td {
-    padding: 5px;
-    border: 0px;
+
+#main table th {
+    padding:2px;
+    border:0px;
     line-height: 1;
     text-align: left;
-    }
+  }
+
 
 #pictbox {
   width: 490px;
@@ -360,7 +378,7 @@ table#detail td {
 
 /*まだ未使用*/
 /*TABLEボーダー非表示*/
-table  {
+/*table  {
 border:none;
 }
 
@@ -380,10 +398,10 @@ a:hover   {text-decoration:underline;color:#333399;}  /*マウスの上にカー
 
 
 /*ページのタイトル部分のみのテキストリンク-----------------*/
-h1 a:link       {color:#444444;text-decoration:none;}  /*メニュー・テキストリンクの色*/
-h1 a:visited    {color:#444444;text-decoration:none;}   /*メニュー・訪問済みのリンクの色*/
-h1 a:active     {color:#444444;text-decoration:underline;}   /*メニュー・クリック時のリンクの色*/
-h1 a:hover      {color:#444444;text-decoration:underline;}   /*メニュー・マウスの上にカーソルがあるときのリンクの色*/
+h1 a:link       {color:#FFFFFF;text-decoration:none;}  /*メニュー・テキストリンクの色*/
+h1 a:visited    {color:#FFFFFF;text-decoration:none;}   /*メニュー・訪問済みのリンクの色*/
+h1 a:active     {color:#FFFFFF;text-decoration:none;}   /*メニュー・クリック時のリンクの色*/
+h1 a:hover      {color:#FFFFFF;text-decoration:none;}   /*メニュー・マウスの上にカーソルがあるときのリンクの色*/
 
 
 .space15{

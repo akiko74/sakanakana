@@ -1,10 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/javascript' %>
 
-<p>
+<p id="notice"><%= notice %></p>
+<div id ="index-right" class="clearfix">
+ <ul class="thumbnail">
+    <div id="thumbnail">
+      <% @pictures.each do |picture| %>
+        <li><%= image_tag picture.image.url(:thumb) %></li>
+      <% end %>
+    </div>
+  </ul>
+</div>
+
+
+
+<div id = "main">
+ <div id = "main_pict">
+
+<%= render 'layouts/mainpict' %>
+
+ </div>
+ <div id = "maincont">
+  <p>
   <b>Tag:</b>
   <%= @tag.tagname %>
-</p>
-
-
-<%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%= link_to 'Back', tags_path %>
+  </p>
+ </div>
+</div>

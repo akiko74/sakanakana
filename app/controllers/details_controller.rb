@@ -11,6 +11,7 @@ class DetailsController < ApplicationController
       @details = Detail.where('genre_id' => params[:genre_id])
       @genre = Genre.find(params[:genre_id])
     end
+    @details = @details.paginate(:page => params[:page] , :per_page => 2)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @details }
@@ -28,6 +29,10 @@ class DetailsController < ApplicationController
       @picture_first = Picture.joins(:details).where('details.id' => params[:id]).first
     end
     @divesites = Divesite.joins(:pictures).where('pictures.id' => @pictures.map{|p| p.id}).uniq
+    @tags = Tag.joins(:pictures).where('pictures.id' => @pictures.map{|p| p.id}).uniq
+    unless params[:divesite_id].blank?
+      @divesite = Divesite.find(params[:divesite_id])
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @detail }

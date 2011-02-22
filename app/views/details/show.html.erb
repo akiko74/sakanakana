@@ -1,79 +1,86 @@
-<script type="text/javascript">
-$(function(){
-  var $container = $('.slideshow').cycle({
-    speed: 300,
-    autostop: 1,
-    autostopCount: 1
-  });
-
-  var obj= $('#thumbnail img');
-  $container.children().each(function(i){
-    $(obj[i]).css('cursor', 'pointer').click(function(){
-        $container.cycle(i);
-        return false;
-    });
-  });
-});
-</script>
-
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/javascript' %>
+<%= notice %>
 
 <% unless @picture_first.blank? %>
   <div id="index-right" class="clearfix">
     <ul class="thumbnail">
         <div id="thumbnail">
-           <li><%= image_tag @picture_first.image.url(:thumb) %></li>
+           <%= image_tag @picture_first.image.url(:thumb) %>
            <% @pictures.each do |picture| %>
-           <li><%= image_tag picture.image.url(:thumb) %></li>
+           <%= image_tag picture.image.url(:thumb) %>
            <% end %>
         </div>
     </ul>
   </div>
 
-  <div id="main">
-<%= link_to 'Back', details_path %>
+<div id="main">
+  <table>
+    <tr>
+      <th><%= @detail.name %></th>
+    </tr>
+  </table>
     <div id="main_pict">
        <div class="slideshow">
           <td>
-             <%= image_tag @picture_first.image.url(:medium) %></li>
+             <%= image_tag @picture_first.image.url(:medium) %>
              <% @pictures.each do |picture| %>
-             <li><%= image_tag picture.image.url(:medium) %></li>
+             <%= image_tag picture.image.url(:medium) %>
              <% end %>
           </td>
        </div>
     </div>
-   </div>
 <% end %>
 
-  <table id="detail">
-    <tr>
-     <th>種別:</th>
+  <table>
+     <tr>
+     <th>種別</th>
         <td><%= @detail.genre.genrename %></td>
      </tr>
      <tr>
-        <th>名前:</th>
+        <th>名前</th>
           <td><%= @detail.name %><td>
      </tr>
      <tr>
-        <th>英名:</th>
+        <th>英名</th>
         <td><%= @detail.englishname %></td>
      </tr>
      <tr>
-      <th>別名:</th>
+      <th>別名</th>
         <td><%= @detail.othername %></td>
      </tr>
      <tr>
-        <th>説明:</th>
+        <th>特徴など</th>
           <td><%= @detail.description %></td>
      </tr> 
-
+  </table>
+  <table>
       <tr>
         <th>見られたポイント</th>
-<% @divesites.each do |d| %>
-      <tr>  
-        <td><%= link_to d.pointname, divesite_path(:id => d.id) %>
-            <% end %>
       </tr>
-
+      <tr>
+        <td>
+           <% @divesites.each do |d| %>
+           <%= link_to d.pointname, divesite_path(:id => d.id) %>
+           <% end %>
+        </td>
+      </tr>
+      <tr>
+          <th>魚についてるタグ</th>
+      </tr>
+      <tr>
+         <td>
+           <% @tags.each do |t| %>
+           <%= link_to t.tagname, tag_path(:id => t.id) %>
+           <% end %>
+         </td>
+      </tr>
+    <tr>
+      <td><%= link_to '魚一覧に戻る', details_path %></td>
+      <% unless @divesite.blank? %>
+      <tr>
+      <td><%= link_to @divesite.pointname, divesite_path(:id => @divesite.id)%>に戻る</td>
+      </tr>
+      <% end %>
+    </tr>
 </table>
 </div>

@@ -15,15 +15,21 @@
   <tr>
     <td><%= genre.genrename %></td>
     <td><%= link_to 'Show', details_path(:genre_id => genre.id) %></td>
+     <% if admin_signed_in? %>
     <td><%= link_to 'Edit', edit_genre_path(genre) %></td>
     <td><%= link_to 'Destroy', genre, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
+<% end %>
 <% end %>
 </table>
 
 <br />
 
+<% if admin_signed_in? %>
 <%= link_to 'New Genre', new_genre_path %>
-
+<% end %>
 </div>
+
+<%= will_paginate @genres %>
+
 </div>

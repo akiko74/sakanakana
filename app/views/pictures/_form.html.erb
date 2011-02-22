@@ -37,6 +37,7 @@
           id="<%= tag.id %>" 
           name="tag_ids[]"
           value="<%= tag.id %>" 
+         <%= @picture.tag_ids.include?(tag.id) ? 'checked' : '' %>
     ><%= tag.tagname %>
   <% end %>
   <div class="actions">

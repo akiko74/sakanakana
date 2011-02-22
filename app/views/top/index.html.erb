@@ -1,13 +1,13 @@
 <script type="text/javascript">
   $(document).ready(function(){
-    $('.slideshow').cycle({
+    $('.slideshowtop').cycle({
     fx: 'fade',
     speed: 4000
       });
   });
 </script>
 
-<div id="index-right" class="clearfix">
+<div id="index-right">
  <div id="whatsnew">
     <p>TOPICS</p>
  </div>
@@ -21,19 +21,20 @@
    <%= render 'widget' %>
  </div>
  <% if admin_signed_in? %>
- <p><%= link_to 'ログアウト', destroy_admin_session_path %>
+ <%= link_to 'ログアウト', destroy_admin_session_path %>
  <% else %>
- <p><%= link_to 'ログイン',  new_admin_session_path %></p>
- <p><%= link_to 'ユーザ登録', new_admin_registration_path %></p>
+ <%= link_to 'ログイン',  new_admin_session_path %>
+ <%= link_to 'ユーザ登録', new_admin_registration_path %>
  <% end %>
 </div>
 
 <div id="main">
  <div id="main_pict">
-  <div class="slideshow">
-    <% @pictures.each do |picture| %>
-     <%= image_tag picture.image.url(:medium) %>
-    <% end %> 
+  <div class="slideshowtop">
+      <% @pictures.each do |picture| %>
+        <% @detail=picture.details.first %>
+          <%= link_to (image_tag picture.image.url(:medium)), detail_path(@detail, :picture_id => picture.id) %>
+        <% end %>
   </div>
  </div>
  <div id="main_cont">

@@ -1,12 +1,28 @@
-<div id="index-right" class="clearfix">
-</div>
-
-<div id="main">
-<%= form_for :details, :html => {:method => :get } do |f| %>
- <%= text_field_tag(:keyword)%>
- <%= f.submit "Search" %>
+<% content_for :title do %>
+魚一覧 || タオ島、他ダイビングスポットで出会った魚たち
 <% end %>
 
+<div id="index-right" class="clearfix">
+   <% @details.each do |detail| %>
+       <% picture = detail.pictures.first %>
+          <% unless  picture.nil? %>
+          <td><%= link_to image_tag(detail.pictures.first.image.url(:thumb)), detail %></td>
+        <% end %>
+   <% end %>
+ </div>
+
+<div id="main">
+  <table>
+    <tr>
+      <th>魚の名前から写真を検索できます。</th>
+    </tr>
+    <tr>
+<td><%= form_for :details, :html => {:method => :get } do |f| %>
+ <%= text_field_tag(:keyword)%>
+ <%= f.submit "検索" %></td>
+<% end %>
+    </tr>
+  </table>
 <table>
   <tr>
     <th>名前</th>
@@ -17,21 +33,22 @@
 
 <% @details.each do |detail| %>
   <tr>
-    <td><%= detail.name %></td>
+    <td><%= link_to detail.name, detail %></td>
     <td><%= detail.englishname %></td>
-    <td><%= detail.othername %></td>
-   <% picture = detail.pictures.first %>
-   <% unless  picture.nil? %>
-    <td><%= link_to image_tag(detail.pictures.first.image.url(:thumb)), detail %></td>
-   <% end %>
+    <td><%= detail.othername %>
+    <% if admin_signed_in? %>
     <td><%= link_to 'Edit', edit_detail_path(detail) %></td>
     <td><%= link_to 'Destroy', detail, :confirm => 'Are you sure?', :method => :delete %></td>
     <td><%= link_to 'New', new_picture_path(:detail_id => detail.id) %></td> 
+    <% end %>
 </tr>
 <% end %>
 </table>
+<%= will_paginate @details %>
 
 <br />
 
-<%= link_to 'New Detail', new_detail_path %>
+    <% if admin_signed_in? %>
+    <%= link_to 'New Detail', new_detail_path %>
+    <% end %>
 </div>
