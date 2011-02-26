@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
   <head>
     <!-- <title><%#= pagetitles() %></title> --!>
-    <title><%= content_for?(:title) ? yield(:title) : "タオ島、他ダイビングスポットで出会った魚たち" %></title>
+    <title><%= content_for?(:title) ? yield(:title)+" | タオ島、他ダイビングスポットで出会った魚たち" : "タオ島、他ダイビングスポットで出会った魚たち" %></title>
 
 <!--  <%= stylesheet_link_tag :all %> --!>
   <%= stylesheet_link_tag 'style' %>
@@ -16,8 +16,8 @@
 
 <body>
 <div id="wrapper">
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+       <%= notice %>
+       <%= alert %>
   <div id="header_pict">
      <h1><%= link_to 'ダイビング写真集', root_path %></h1>
    <img src="/images/sample_top.jpg">

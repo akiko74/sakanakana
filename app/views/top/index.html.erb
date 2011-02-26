@@ -12,10 +12,8 @@
     <p>TOPICS</p>
  </div>
  <div id="whatsnew_cont">
-   <ul>
      <li>更新情報</li>
      <li>更新情報２</li>
-   </ul>
  </div>
  <div id="twitter">
    <%= render 'widget' %>
@@ -29,14 +27,12 @@
 </div>
 
 <div id="main">
- <div id="main_pict">
   <div class="slideshowtop">
       <% @pictures.each do |picture| %>
         <% @detail=picture.details.first %>
           <%= link_to (image_tag picture.image.url(:medium)), detail_path(@detail, :picture_id => picture.id) %>
         <% end %>
   </div>
- </div>
  <div id="main_cont">
    <p>メインコンテテンツの場所</p>
  </div>

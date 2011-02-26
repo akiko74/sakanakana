@@ -79,7 +79,6 @@ margin: 5px 0px;
   background-color:#FFFFFF;
   padding-bottom: 32768px;
   margin-bottom: -32768px;
-
 }  
 
 /*左メニュー設定*/  
@@ -173,12 +172,6 @@ list-style:none;
   list-style: none;
 }
 
-#whatsnew_cont ul {
-  margin: 0px;
-  padding: 0px;
-  list-style:none;
-}
-
 #twitter {
   width:220px;
   float:right;
@@ -197,19 +190,6 @@ list-style:none;
   line-height:1.5;
 }
 
-#twitter_cont ul {
-  margin: 0px;
-  padding: 0px;
-  list-style:none;
-}
-
-#thumbnail_box {
-  width:100%;
-  margin :1px;
-  border : 1px #9d9d9d solid;
-  background:#EEEEE;
-}
-
 /*中央コンテンツ設定*/
 
 #main {
@@ -219,6 +199,7 @@ list-style:none;
   padding-bottom: 32768px;
   margin-bottom: -32768px;
   background:#FFFFFF;
+  min-width: 300px;
 }
 
 .slideshow {
@@ -241,11 +222,6 @@ list-style:none;
   margin:auto;
 }
 
-#main_pict {
-  width:100%;
-  line-height:1;
-}
-
 #main_cont {
   width:100%;
   line-height:1;
@@ -258,6 +234,10 @@ list-style:none;
 #header_pict {
   margin:0px;
   background-color:#FFC473;
+  width:100%;
+}
+
+#header_pict img {
   width:100%;
 }
 
@@ -349,33 +329,6 @@ ul.thumbnail li a { display: block; }
   }
 
 
-#pictbox {
-  width: 490px;
-  margin: 0;
-  border: 0;
-  }
-
-#pictbox ul {
-  list-style: none;
-  margin: 0;
-  padding:0;
-  }
-
-#pictbox li  {
-     padding:5px;   
-     margin:0;
- } 
-
-#pictbox li p {
-     display:block;  
-     padding:0px;  
-     line-height:2;  
-     text-decoration:none;  
-     margin:0;
-     font-weight:bold;
- }  
- 
-
 /*まだ未使用*/
 /*TABLEボーダー非表示*/
 /*table  {
@@ -403,22 +356,3 @@ h1 a:visited    {color:#FFFFFF;text-decoration:none;}   /*メニュー・訪問�
 h1 a:active     {color:#FFFFFF;text-decoration:none;}   /*メニュー・クリック時のリンクの色*/
 h1 a:hover      {color:#FFFFFF;text-decoration:none;}   /*メニュー・マウスの上にカーソルがあるときのリンクの色*/
 
-
-.space15{
-width:15px;
-}
-
-.bar {
-background-color:#CCC8E1; /*トップお知らせ部分の背景色*/
-padding:6px;
-margin-bottom:15px;
-} 
-
-
-.waku {
-border:#bbbbbb 1px solid; /*枠線の設定*/
-} 
-
-.space20{
-　　　margin-bottom:20px;
-}

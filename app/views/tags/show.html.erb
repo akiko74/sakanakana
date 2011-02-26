@@ -1,6 +1,9 @@
+<% content_for :title do @tag.tagname %>
+<% end %>
+
 <%= render 'layouts/javascript' %>
 
-<p id="notice"><%= notice %></p>
+<%= notice %>
 <div id ="index-right" class="clearfix">
  <ul class="thumbnail">
     <div id="thumbnail">
@@ -14,15 +17,16 @@
 
 
 <div id = "main">
+  <table>
+    <tr>
+      <th>"<%= @tag.tagname %>"タグがついている写真</th>
+    <tr>
+   </table>
  <div id = "main_pict">
 
 <%= render 'layouts/mainpict' %>
 
  </div>
  <div id = "maincont">
-  <p>
-  <b>Tag:</b>
-  <%= @tag.tagname %>
-  </p>
  </div>
 </div>

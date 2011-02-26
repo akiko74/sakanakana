@@ -8,8 +8,8 @@ module ApplicationHelper
    @show_title
  end
 
-# def pagetitles()
-#   title_name = TITLE["_common_page_title_divelogs_index"]  
+# def pagetitles
+#   title_name = ["_common_page_title_divelogs_index"]  
 #   key_name = "_page_title_#{controller.controller_name}_#{controller.action_name}"  
 #   title_name += " | " + "#{TITLE[key_name]}" if TITLE[key_name]  
 #   return title_name

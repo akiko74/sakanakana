@@ -1,3 +1,7 @@
+<div id="index-right" class="clearfix">
+</div>
+
+<div id="main">
 <%= form_for(@picture, {}, :html => { :multipart => true }) do |f| %>
   <% if @picture.errors.any? %>
     <div id="error_explanation">
@@ -43,5 +47,6 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
 
 <% end %>

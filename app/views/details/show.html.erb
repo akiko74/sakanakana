@@ -1,3 +1,7 @@
+<% content_for :title do %>
+<%= @detail.name %>
+<% end %> 
+
 <%= render 'layouts/javascript' %>
 <%= notice %>
 
@@ -19,16 +23,12 @@
       <th><%= @detail.name %></th>
     </tr>
   </table>
-    <div id="main_pict">
        <div class="slideshow">
-          <td>
              <%= image_tag @picture_first.image.url(:medium) %>
              <% @pictures.each do |picture| %>
              <%= image_tag picture.image.url(:medium) %>
              <% end %>
-          </td>
        </div>
-    </div>
 <% end %>
 
   <table>

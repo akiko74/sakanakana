@@ -7,7 +7,7 @@ class Picture < ActiveRecord::Base
   belongs_to :divesite
   has_one :exif
 
-  has_attached_file :image, :styles => { :medium => "500x381>", :thumb => "105x80>" }
+  has_attached_file :image, :styles => { :medium => "720x540>", :thumb => "105x80>" }
 
   after_save :process_exif
 
