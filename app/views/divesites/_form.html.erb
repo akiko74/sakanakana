@@ -1,4 +1,8 @@
-<%= form_for(@divesite) do |f| %>
+<div id="index-right">
+</div>
+
+<div id="main">
+<%= form_for(@divesite, {}, :html => { :multipart => true }) do |f| %>
   <% if @divesite.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@divesite.errors.count, "error") %> prohibited this divesite from being saved:</h2>
@@ -16,8 +20,10 @@
     <%= f.label :pointname %><br />
     <%= f.text_field :pointname %>
     <%= collection_select(:divesite, :area_id, Area.all, :id, :areaname) %>
+    <%= f.file_field :sitemap %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>

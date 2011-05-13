@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110210164235) do
+ActiveRecord::Schema.define(:version => 20110507100127) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -55,17 +55,21 @@ ActiveRecord::Schema.define(:version => 20110210164235) do
   end
 
   create_table "divelogs", :force => true do |t|
-    t.date     "logdate",     :null => false
+    t.datetime "logdate",     :null => false
     t.integer  "divesite_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "divesites", :force => true do |t|
-    t.string   "pointname",  :null => false
-    t.integer  "area_id",    :null => false
+    t.string   "pointname",            :null => false
+    t.integer  "area_id",              :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sitemap_file_name"
+    t.string   "sitemap_content_type"
+    t.integer  "sitemap_file_size"
+    t.datetime "sitemap_updated_at"
   end
 
   create_table "exifs", :force => true do |t|

@@ -1,15 +1,30 @@
+<script type="text/javascript">
+    $(function() {
+        $('.thumbnail a').lightBox();
+    });
+</script>
+
 <% content_for :title do @divesite.pointname %>
 <% end %>
 
 <%= notice %>
 
-<%= render 'layouts/javascript' %>
-<%= render 'layouts/rightthumb' %>
+  <div id="index-right" class="clearfix">
+    <ul class="thumbnail">
+           <% @pictures.each do |picture| %>
+           <% @detail = picture.details.first %>
+        <div id="thumbnail">
+           <li><%= link_to(image_tag(picture.image.url(:thumb)),picture.image.url(:medium), :rev=> detail_path(:id =>@detail.id, :picture_id => picture.id) ) %></li>
+        </div>
+           <% end %>
+    </ul>
+  </div>
 
 <div id="main">
-  <h2>ポイント名: <%= @divesite.pointname %></h2>
- 
-<%= render 'layouts/mainpict' %>
+  <p>ポイント名: <%= @divesite.pointname %></p>
+
+<%= image_tag @divesite.sitemap.url(:original) %>
+<%#= render 'layouts/mainpict' %>
 
   <table>
     <tr>

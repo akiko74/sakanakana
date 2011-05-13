@@ -1,7 +1,7 @@
 class CreateDivelogs < ActiveRecord::Migration
   def self.up
     create_table :divelogs do |t|
-      t.date :logdate, :null => false
+      t.datetime :logdate, :null => false
       t.integer :divesite_id, :null => false
       t.timestamps
     end

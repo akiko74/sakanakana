@@ -1,16 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div id="index-right">
+</div>
 
-<p>
-  <b>Name:</b>
-  <%= @area.areaname %>
-  <b>Point:</b>
+<div id="main">
+<%= notice %>
+
+    <h2><%= @area.areaname %></h2>
+
+<table>
+  <tr>
+    <th>ポイント名:</b>
   <% @divesites.each do |divesite| %>
   <tr>
   <td><%= link_to divesite.pointname, divesite_path(:id => divesite.id) %></br></td>
   </tr>
   <% end %>
-</p>
+</table>
 
 
 <%= link_to 'Edit', edit_area_path(@area) %> |
 <%= link_to 'Back', areas_path %>
+
+</div>

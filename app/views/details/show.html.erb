@@ -6,7 +6,7 @@
 <%= notice %>
 
 <% unless @picture_first.blank? %>
-  <div id="index-right" class="clearfix">
+<div id="index-right" class="clearfix">
     <ul class="thumbnail">
         <div id="thumbnail">
            <%= image_tag @picture_first.image.url(:thumb) %>
@@ -18,11 +18,7 @@
   </div>
 
 <div id="main">
-  <table>
-    <tr>
-      <th><%= @detail.name %></th>
-    </tr>
-  </table>
+    <p><%= @detail.name %></p>
        <div class="slideshow">
              <%= image_tag @picture_first.image.url(:medium) %>
              <% @pictures.each do |picture| %>

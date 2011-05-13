@@ -6,8 +6,10 @@
 
 <!--  <%= stylesheet_link_tag :all %> --!>
   <%= stylesheet_link_tag 'style' %>
+  <%= stylesheet_link_tag 'lightbox' %>
   <%= javascript_include_tag(:defaults) %>
   <%= javascript_include_tag 'jquery.cycle.all' %>
+  <%= javascript_include_tag 'jquery.lightbox' %>
   <%= javascript_include_tag 'rails' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
@@ -37,9 +39,9 @@
                <li><%= link_to 'タグで探す', tags_path %></li>
              </ul>
           </li>
-          <li><a href="a">動画を見る</a></li>
-          <li><a href="a">機材など</a></li>
-          <li><a href="a">お問い合わせ</a></li>
+          <li><a href="/top/movies">動画など</a></li>
+          <li><a href="/top/equipments">機材など</a></li>
+          <li><a href="/top/contact">お問い合わせ</a></li>
         </ul>
       </div>
   </div>

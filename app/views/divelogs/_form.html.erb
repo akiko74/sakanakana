@@ -1,3 +1,7 @@
+<div id="index-right">
+</div>
+
+<div id="main">
 <%= form_for(@divelog) do |f| %>
   <% if @divelog.errors.any? %>
     <div id="error_explanation">
@@ -13,10 +17,11 @@
 
   <div class="field">
     <%= f.label :logdate %><br />
-    <%= f.date_select :logdate %>
+    <%= f.datetime_select :logdate %>
     <%= collection_select (:divelog, :divesite_id, Divesite.all, :id, :pointname) %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>

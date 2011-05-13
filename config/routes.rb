@@ -16,6 +16,9 @@ Sakana::Application.routes.draw do
   resources :pictures
 
   root :to => "top#index"
+  resource :top ,:controller => 'top' do
+    match ':action' ,:controller => :top
+  end
 
 #for devise(redirect after login)
   devise_for :admins

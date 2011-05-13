@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+<title>タオ島、他ダイビングスポットで出会った魚たち</title>
+<!--  <%= stylesheet_link_tag :all %> --!>
+  <%= stylesheet_link_tag 'style' %>
+  <%= javascript_include_tag(:defaults) %>
+  <%= javascript_include_tag 'jquery.cycle.all' %>
+  <%= javascript_include_tag 'rails' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tag %>
+
+
+<script type="text/javascript">
+$(function(){
+  var $container = $('.slideshow').cycle({
+    speed: 300,
+    autostop: 1,
+    autostopCount: 1
+  });
+
+  var obj= $('#thumbnail img');
+  $container.children().each(function(i){
+    $(obj[i]).css('cursor', 'pointer').click(function(){
+        $container.cycle(i);
+        return false;
+    });
+  });
+});
+</script>
+
+</head>
+
+<body>
+<div id="wrapper">
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+  <div id="header_pict">
+   <h1>ダイビング写真集</h1>
+   <img src="/images/sample_top.jpg">
+  </div>
+  <div id="header_cont">
+   <h2>タイのタオ島を中心に、ダイビング中に出会った魚の写真を掲載しています</h2>
+  </div>
+  <div id="content">
+  <div id="index-left" class="clearfix">
+      <div id="menu">
+        <ul>
+          <li><%= link_to 'ダイビングログ', divelogs_path %></li>
+          <li><%= link_to 'ポイント名', divesites_path %></li>
+          <li><p>写真を探す</p>
+             <ul>
+               <li><%= link_to '名前で探す', details_path %></li>
+               <li><%= link_to '種類で探す', genres_path %></li>
+               <li><%= link_to 'タグで探す', tags_path %></li>
+             </ul>
+          </li>
+          <li><a href="a"><動画を見る</a></li>
+          <li><a href="a"><機材など</a></li>
+          <li><a href="a">お問い合わせ</a></li>
+        </ul>
+      </div>
+  </div>
+
+  <%= yield %>
+
+</div>
+<div id="footer">
+  <p>All Rights Reserved. 無断転載禁止</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+  <div id="index-right" class="clearfix">
+    <ul class="thumbnail">
+        <div id="thumbnail">
+           <% @pictures.each do |picture| %>
+           <li><%= image_tag picture.image.url(:thumb) %></li>
+           <% end %>
+        </div>
+    </ul>
+  </div>
+

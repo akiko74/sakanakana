@@ -1,4 +1,6 @@
-<title><%= pagetitles %></title>
+<% content_for :title do %>
+ダイブログ一覧
+<% end %>
 
 <div id="index-right">
 </div>
@@ -9,7 +11,7 @@
 <table>
   <% @divelogs.each do |divelog| %>
     <tr>
-      <td><%= divelog.logdate %></td>
+      <td><%= divelog.logdate.strftime("%Y-%m-%d %H:%M") %></td>
       <td><%= link_to divelog.divesite.pointname, divesite_path(:id=> divelog.divesite.id) %>
         <% if admin_signed_in? %>
           <td><%= link_to 'Edit', edit_divelog_path(divelog) %></td>

@@ -196,10 +196,11 @@ list-style:none;
   margin: 0px 230px;
   border-right: 1px #9d9d9d solid;
   border-left: 1px #9d9d9d solid;
+  border-top: 0px;
+  border-bottom: 0px;
   padding-bottom: 32768px;
   margin-bottom: -32768px;
   background:#FFFFFF;
-  min-width: 300px;
 }
 
 .slideshow {
@@ -280,11 +281,14 @@ ul.thumbnail li {
  float: left;
  margin: 2px;
  height: 100%;
+ list-style-type: none;
 }
+
 ul.thumbnail li img {
  width: 105px;
  height: 80px;
 }
+
 ul.thumbnail li a { display: block; }
 
 
@@ -298,10 +302,10 @@ ul.thumbnail li a { display: block; }
   text-align:left;
   }
   
-#main name p {
+#main p {
    line-height:2;
    font-family:Osaka,Verdana,Arial,Helvetica,sans-serif;
-   font-weight:normal;
+   font-weight:bold;
    margin:0px;
    padding:5px 5px;
    color:#444444;
@@ -315,6 +319,7 @@ ul.thumbnail li a { display: block; }
   }
 
 #main table tr, td {
+    margin: 0px;
     padding: 2px;
     border: 0px;
     line-height: 1;
@@ -322,12 +327,17 @@ ul.thumbnail li a { display: block; }
     }
 
 #main table th {
+    margin: 0px;
     padding:2px;
     border:0px;
     line-height: 1;
     text-align: left;
   }
 
+#main img {
+  width: 100%;
+  margin: auto;
+}
 
 /*まだ未使用*/
 /*TABLEボーダー非表示*/
