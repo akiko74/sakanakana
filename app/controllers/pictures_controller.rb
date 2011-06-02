@@ -37,7 +37,8 @@ class PicturesController < ApplicationController
   # GET /pictures/new.xml
   def new
     @picture = Picture.new
-    @detail = Detail.find(params[:detail_id])
+#    @divesites = Divesite.all
+#    @detail = Detail.find(params[:detail_id])
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @picture }
@@ -52,8 +53,9 @@ class PicturesController < ApplicationController
   
   # POST /pictures.xml
   def create
-    @picture = Picture.create(params[:picture])
     @detail  = Detail.find(params[:detail_id])
+    @picture = Picture.create(params[:picture])
+#    @detail  = Detail.find(1)
     @picture.details << @detail
     @picture.tag_ids = params[:tag_ids]
 
