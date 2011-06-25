@@ -28,6 +28,9 @@ gem "will_paginate", "~> 3.0.pre2"
 #ER図出力用
 gem "rails-erd", :git => 'git://github.com/voormedia/rails-erd.git'
 
+#fastercsv
+gem 'fastercsv'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

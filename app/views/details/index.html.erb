@@ -44,13 +44,16 @@
     <td><%= link_to 'New', new_picture_path(:detail_id => detail.id) %></td> 
     <% end %>
 </tr>
-<% end %>
+
 </table>
 <%= will_paginate @details %>
+<% end %>
+
 
 <br />
 
     <% if admin_signed_in? %>
-    <%= link_to 'New Detail', new_detail_path %>
+    <%= link_to 'New Detail Web', new_detail_path %>
     <% end %>
+
 </div>

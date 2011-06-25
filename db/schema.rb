@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110507100127) do
+ActiveRecord::Schema.define(:version => 20110618154830) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -55,10 +55,11 @@ ActiveRecord::Schema.define(:version => 20110507100127) do
   end
 
   create_table "divelogs", :force => true do |t|
-    t.datetime "logdate",     :null => false
     t.integer  "divesite_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_date",  :null => false
+    t.datetime "end_date",    :null => false
   end
 
   create_table "divesites", :force => true do |t|
@@ -76,7 +77,7 @@ ActiveRecord::Schema.define(:version => 20110507100127) do
     t.string   "camera_brand"
     t.string   "camera_model"
     t.datetime "shot_date_time"
-    t.integer  "picture_id"
+    t.integer  "picture_id",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,8 +89,8 @@ ActiveRecord::Schema.define(:version => 20110507100127) do
   end
 
   create_table "pictures", :force => true do |t|
-    t.integer  "divesite_id",        :null => false
-    t.integer  "divelog_id",         :null => false
+    t.integer  "divesite_id"
+    t.integer  "divelog_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

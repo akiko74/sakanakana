@@ -1,4 +1,23 @@
+require 'csv'
+
 class DetailsController < ApplicationController
+
+
+  def csv_import
+    if params[:dump][:file].class == StringIO
+       @parsed_file =FasterCSV.parse(params[:dump][:file])
+
+    @parsed_file.each do |data|
+       field1, field2, field3, field4, field5 = data
+       @detail = Detail.new(:name => field1,
+                            :englishname => field2,
+                            :othername => field3,
+	                    :description => field4,
+			    :genre_id => field5)
+       @detail.save
+      end       
+     end
+   end
 
   # GET /details
   # GET /details.xml
@@ -43,6 +62,7 @@ class DetailsController < ApplicationController
   # GET /details/new.xml
   def new
     @detail = Detail.new
+    @csv = params[:csv]    
 
     respond_to do |format|
       format.html # new.html.erb
@@ -63,6 +83,7 @@ class DetailsController < ApplicationController
     respond_to do |format|
       if @detail.save
         format.html { redirect_to(@detail, :notice => 'Detail was successfully created.') }
+        format.html { redirect_to :action => 'index' }
         format.xml  { render :xml => @detail, :status => :created, :location => @detail }
       else
         format.html { render :action => "new" }

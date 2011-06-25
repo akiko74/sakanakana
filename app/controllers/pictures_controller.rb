@@ -37,8 +37,6 @@ class PicturesController < ApplicationController
   # GET /pictures/new.xml
   def new
     @picture = Picture.new
-#    @divesites = Divesite.all
-#    @detail = Detail.find(params[:detail_id])
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @picture }
@@ -48,19 +46,28 @@ class PicturesController < ApplicationController
   # GET /pictures/1/edit
   def edit
     @picture = Picture.find(params[:id])
-    @pictures = Picture.joins(:details).where('details.id'=> params[:detail_id])
+    @detail = Picture.joins(:details).where('picture.id' => params[:id])
+    @details = Detail.scoped
+      unless params[:keyword].blank?
+       @details = Detail.find(:all, :conditions => ["name like ? ", '%' + params[:keyword] + "%"])
+      end
+
+#    @pictures = Picture.joins(:details).where('details.id'=> params[:detail_id])
+     unless params[:detail_id].blank?
+     @detail = Detail.find(params[:detail_id])
+     end
   end
   
   # POST /pictures.xml
   def create
-    @detail  = Detail.find(params[:detail_id])
     @picture = Picture.create(params[:picture])
-#    @detail  = Detail.find(1)
-    @picture.details << @detail
-    @picture.tag_ids = params[:tag_ids]
 
     respond_to do |format|
       if @picture.save
+      @divelog = Divelog.where('start_date < ? and end_date > ?', @picture.exif.shot_date_time, @picture.exif.shot_date_time).first  
+      @picture.divelog_id = @divelog.id
+      @picture.divesite_id = @divelog.divesite_id
+      @picture.update_attributes(:divesite_id)
         format.html { redirect_to(@picture, :notice => 'Picture was successfully created.') }
         format.xml  { render :xml => @picture, :status => :created, :location => @picture }
       else
@@ -76,6 +83,8 @@ class PicturesController < ApplicationController
   def update
     @picture = Picture.find(params[:id])
     @picture.tag_ids = params[:tag_ids]
+    @detail = Detail.find(params[:detail_id])
+    @picture.details << @detail
 
     respond_to do |format|
       if @picture.update_attributes(params[:picture])

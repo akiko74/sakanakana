@@ -1,6 +1,55 @@
-<h1>Editing picture</h1>
+<div id="index-right">
+</div>
 
-<%= render 'form' %>
+<div id="main">
+<table>
+<td><%= image_tag @picture.image.url(:thumb) %></td>
+<tr>
+ <td>検索</td>
+</tr>
+<tr>
+ <td><% unless @detail.nil? %>
+ <%= @detail.name %>
+ <% end %>
+ </td>
+</tr>
+<tr> 
+ <td><%= form_for :details, :html => {:method => :get } do |f| %>
+   <%= text_field_tag(:keyword) %>
+   <%= f.submit "検索" %></td>
+   <% end %>
+</tr>
+<tr>
+  <td>
+ <% @details.each do |detail| %>
+   <%= link_to detail.name, edit_picture_path(:detail_id => detail.id)  %>
+ <% end %>
+  </td>
+</tr>
+
+<tr>
+<td>
+<%= form_for @picture do |f| %>
+<%= f.label :detail_name %><br />
+<input name="detail_id" type="hidden" value="<%= @detail.id %>">
+<%= f.label :tag_name %><br />
+  <% Tag.all.each do |tag| %>
+  <input type="checkbox"
+         id="<%= tag.id %>"
+         name="tag_ids[]"
+         value="<%=tag.id %>"
+        <%= @picture.tag_ids.include?(tag.id) ? 'checked' : ''%>
+   ><%= tag.tagname %>
+  <% end %>
+  <div class="actions">
+  <%= f.submit %>
+  </div>
+</td>
+<% end %>
+</tr>
+</table>
 
 <%= link_to 'Show', @picture %> |
 <%= link_to 'Back', pictures_path %>
+
+</div>

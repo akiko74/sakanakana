@@ -16,8 +16,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :logdate %><br />
-    <%= f.datetime_select :logdate %>
+    <%= f.label :startdate %>
+    <%= f.datetime_select :start_date %><br />
+    <%= f.label :enddate %>
+    <%= f.datetime_select :end_date %><br />
     <%= collection_select (:divelog, :divesite_id, Divesite.all, :id, :pointname) %>
   </div>
   <div class="actions">

@@ -15,49 +15,16 @@
     </div>
   <% end %>
 
-<!--
-  <div class="field">
-  <#%= grouped_collection_select(:picture, :divelog_id, @divesites, :divelogs, :pointname, :id, :logdate) %>
-  </div>
---!>
-
-  <div class="field">
-    <%= f.label :divelog %><br />
-    <#%= collection_select(:picture, :divelog_id, @divelogs, :id, :logdate) %>
-    <%= collection_select(:picture, :divelog_id, Divelog.all, :id, :logdate) %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :divesite %><br />
-    <%= collection_select(:picture, :divesite_id, Divesite.all, :id, :pointname) %>
-  </div>
-
-
   <div class="field">
     <%= f.label :image %><br />
     <%= f.file_field :image %>
   </div>
 
-
-<!--  <div>
-    <%#=f.label :detail_name %>
-    <input name="detail_id" type="hidden" value="<%#= @detail.id %>">
-  <div>
---!>
-  <%= f.label :tag_name %><br />
-    <% Tag.all.each do |tag| %>
-   <input type="checkbox" 
-          id="<%= tag.id %>" 
-          name="tag_ids[]"
-          value="<%= tag.id %>" 
-         <%= @picture.tag_ids.include?(tag.id) ? 'checked' : '' %>
-    ><%= tag.tagname %>
-  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
 </div>
+
 
 <% end %>
 

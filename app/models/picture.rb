@@ -19,7 +19,19 @@ class Picture < ActiveRecord::Base
             pic_exif.camera_model = exif.model
             pic_exif.shot_date_time = exif.date_time
         pic_exif.save
+#      @divelog = Divelog.where('start_date < ? and end_date > ?', pic_exif.shot_date_time, pic_exif.shot_date_time).first
+#      @picture.divelog_id = @divelog.id
+#      @picture.divesite_id = @divelog.divesite_id
+#      @picture.update_attributes(:divesite_id, :divelog_id)
       end
+
+
+#    def update_log
+#      exifdate=self.exif.date_time
+#      logdates = Divelog.where('start_date > ?, and end_date < ?', exifdate, exifdate)
+#    end
+      
+
 
 #    def create
 #      detail = Detail.find(params[:detail_id])

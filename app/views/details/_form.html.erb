@@ -2,6 +2,7 @@
 </div>
 
 <div id="main">
+
 <%= form_for(@detail) do |f| %>
   <% if @detail.errors.any? %>
     <div id="error_explanation">
@@ -38,5 +39,6 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
 </div>
