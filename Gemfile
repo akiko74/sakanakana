@@ -31,11 +31,15 @@ gem "rails-erd", :git => 'git://github.com/voormedia/rails-erd.git'
 #fastercsv
 gem 'fastercsv'
 
+# Deploy with Capistrano
+gem 'capistrano'
+
+#Deploy management
+gem 'passenger' 
+
+
 # Use unicorn as the web server
 # gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug'

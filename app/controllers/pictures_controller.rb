@@ -9,7 +9,7 @@ class PicturesController < ApplicationController
 #  end
 
   def index
-    @pictures = Picture.limit(6)
+    @pictures = Picture.order('id DESC').limit(10)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,7 +46,7 @@ class PicturesController < ApplicationController
   # GET /pictures/1/edit
   def edit
     @picture = Picture.find(params[:id])
-    @detail = Picture.joins(:details).where('picture.id' => params[:id])
+    @detail = @picture.details.first
     @details = Detail.scoped
       unless params[:keyword].blank?
        @details = Detail.find(:all, :conditions => ["name like ? ", '%' + params[:keyword] + "%"])
@@ -64,7 +64,7 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
-      @divelog = Divelog.where('start_date < ? and end_date > ?', @picture.exif.shot_date_time, @picture.exif.shot_date_time).first  
+      @divelog = Divelog.order('id DESC').where('start_date < ? and end_date > ?', @picture.exif.shot_date_time, @picture.exif.shot_date_time).last
       @picture.divelog_id = @divelog.id
       @picture.divesite_id = @divelog.divesite_id
       @picture.update_attributes(:divesite_id)

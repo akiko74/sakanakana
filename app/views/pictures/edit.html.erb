@@ -30,9 +30,11 @@
 <tr>
 <td>
 <%= form_for @picture do |f| %>
+<% unless @detail.nil? %>
 <%= f.label :detail_name %><br />
 <input name="detail_id" type="hidden" value="<%= @detail.id %>">
 <%= f.label :tag_name %><br />
+<% end %>
   <% Tag.all.each do |tag| %>
   <input type="checkbox"
          id="<%= tag.id %>"

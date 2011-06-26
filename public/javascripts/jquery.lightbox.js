@@ -25,7 +25,7 @@
 			overlayBgColor: 		'#000',		// (string) Background color to overlay; inform a hexadecimal value like: #RRGGBB. Where RR, GG, and BB are the hexadecimal values for the red, green, and blue values of the color.
 			overlayOpacity:			0.8,		// (integer) Opacity value to overlay; inform: 0.X. Where X are number from 0 to 9
 			// Configuration related to navigation
-			fixedNavigation:		false,		// (boolean) Boolean that informs if the navigation (next and prev button) will be fixed or not in the interface.
+			fixedNavigation:		true,		// (boolean) Boolean that informs if the navigation (next and prev button) will be fixed or not in the interface.
 			// Configuration related to images
 			imageLoading:			'/images/lightbox-ico-loading.gif',		// (string) Path and the name of the loading icon
 			imageBtnPrev:			'/images/lightbox-btn-prev.gif',			// (string) Path and the name of the prev button image
@@ -263,7 +263,7 @@
 			// Instead to define this configuration in CSS file, we define here. And it´s need to IE. Just.
 			$('#lightbox-nav-btnPrev,#lightbox-nav-btnNext').css({ 'background' : 'transparent url(' + settings.imageBlank + ') no-repeat' });
 			
-		/** Show the prev button, if not the first image in set
+		// Show the prev button, if not the first image in set
 			if ( settings.activeImage != 0 ) {
 				if ( settings.fixedNavigation ) {
 					$('#lightbox-nav-btnPrev').css({ 'background' : 'url(' + settings.imageBtnPrev + ') left 15% no-repeat' })
@@ -311,7 +311,7 @@
 				}
 			}
 			// Enable keyboard navigation
-			_enable_keyboard_navigation(); */
+			_enable_keyboard_navigation();
 		}
 		/**
 		 * Enable a support to keyboard navigation

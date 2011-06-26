@@ -1,9 +1,13 @@
+<div id="index-right">
+</div>
+
+<div id="main">
 <p id="notice"><%= notice %></p>
 
 <p>
   <b>Pic:</b>
   <%= @picture.image_file_name %>
-  <%= @picture.divelog.logdate %>
+  <%= @picture.divelog.start_date %>
   <%= @picture.divelog.divesite.pointname %>
 </p>
 
@@ -16,7 +20,7 @@
 <%= image_tag pict.image.url(:thumb) %>
 <% end %>
 
-<%= link_to 'new_detail', :id => @picture.id %>
+<%= link_to 'New', new_picture_path %> |
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Back', pictures_path %>
-
+</div>
