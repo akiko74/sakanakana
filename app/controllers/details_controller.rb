@@ -30,7 +30,7 @@ class DetailsController < ApplicationController
       @details = Detail.where('genre_id' => params[:genre_id])
       @genre = Genre.find(params[:genre_id])
     end
-    @details = @details.paginate(:page => params[:page] , :per_page => 2)
+    @details = @details.paginate(:page => params[:page] , :per_page => 20)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @details }
@@ -42,6 +42,7 @@ class DetailsController < ApplicationController
   def show
     @detail = Detail.find(params[:id])
     @pictures = Picture.joins(:details).where('details.id' => params[:id])
+#    @pictures = @pictures.pagenate(:page => params[:page], :per_page => 20)
     unless params[:picture_id].blank?
       @picture_first = Picture.find(params[:picture_id])
     else

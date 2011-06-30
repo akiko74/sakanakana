@@ -30,14 +30,13 @@
     <th>名前</th>
     <th>英名</th>
     <th>別名</th>
-    <th></th>
   </tr>
 
 <% @details.each do |detail| %>
   <tr>
     <td><%= link_to detail.name, detail %></td>
     <td><%= detail.englishname %></td>
-    <td><%= detail.othername %>
+    <td><%= detail.othername %></td>
     <% if admin_signed_in? %>
     <td><%= link_to 'Edit', edit_detail_path(detail) %></td>
     <td><%= link_to 'Destroy', detail, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -46,8 +45,8 @@
 </tr>
 
 </table>
-<%= will_paginate @details %>
 <% end %>
+<%= will_paginate @details %>
 
 
 <br />
@@ -56,4 +55,3 @@
     <%= link_to 'New Detail Web', new_detail_path %>
     <% end %>
 
-</div>

@@ -34,8 +34,7 @@
        <%= notice %>
        <%= alert %>
   <div id="header_pict">
-     <h1><%= link_to 'ダイビング写真集', root_path %></h1>
-   <img src="/images/sample_top.jpg">
+   <%= link_to (image_tag('/images/sample_top.jpg'), root_path) %>
   </div>
   <div id="header_cont">
    <h2>タイのタオ島を中心に、ダイビング中に出会った魚の写真を掲載しています</h2>
