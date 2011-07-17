@@ -312,27 +312,22 @@ ul.thumbnail li a { display: block; }
 }
 
 #main table {
+  table-layout:fixed;
   width: 100%;
   margin:2px;
   border: 0px;
   padding: 0px;
   }
 
-#main table tr, td {
+#main table th, tr, td {
     margin: 0px;
     padding: 2px;
     border: 0px;
     line-height: 1;
     text-align: left;
+    width: 160;
     }
 
-#main table th {
-    margin: 0px;
-    padding:2px;
-    border:0px;
-    line-height: 1;
-    text-align: left;
-  }
 
 #main img {
   width: 100%;

@@ -30,7 +30,6 @@
     <th>名前</th>
     <th>英名</th>
     <th>別名</th>
-    <th></th>
   </tr>
 
 <% @details.each do |detail| %>
@@ -45,9 +44,9 @@
     <% end %>
 </tr>
 
+<% end %>
 </table>
 <%= will_paginate @details %>
-<% end %>
 
 
 <br />

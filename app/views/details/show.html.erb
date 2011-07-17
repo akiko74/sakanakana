@@ -14,6 +14,9 @@
            <%= image_tag picture.image.url(:thumb) %>
            <% end %>
         </div>
+    <% if @count > 11 %>
+    <%= link_to '全部見る', picture_path(:id=> @picture_first.id) %>
+    <% end %>
     </ul>
   </div>
 
