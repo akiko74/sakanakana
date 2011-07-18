@@ -3,7 +3,7 @@
 <% end %>
 
 <div id="index-right" class="clearfix">
-  <table>
+<table>
    <% @details.each do |detail| %>
        <% picture = detail.pictures.first %>
           <% unless  picture.nil? %>
@@ -44,8 +44,8 @@
     <% end %>
 </tr>
 
-</table>
 <% end %>
+</table>
 <%= will_paginate @details %>
 
 

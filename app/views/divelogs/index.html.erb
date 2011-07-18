@@ -9,6 +9,10 @@
 <h2>ダイブログ</h2>
 
 <table>
+  <tr>
+  <th>日付</th>
+  <th>ポイント</th>
+  <tr>
   <% @divelogs.each do |divelog| %>
     <tr>
       <td><%= divelog.start_date.strftime("%Y-%m-%d %H:%M") %></td>

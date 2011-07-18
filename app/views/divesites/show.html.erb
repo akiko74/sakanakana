@@ -12,7 +12,7 @@
   <div id="index-right" class="clearfix">
     <ul class="thumbnail">
            <% @pictures.each do |picture| %>
-           <% @detail = picture.details.first %>
+           <% @detail = picture.details.last %>
         <div id="thumbnail">
            <li><%= link_to(image_tag(picture.image.url(:thumb)),picture.image.url(:medium), :rev=> detail_path(:id =>@detail.id, :picture_id => picture.id) ) %></li>
         </div>
@@ -24,8 +24,6 @@
   <p>ポイント名: <%= @divesite.pointname %></p>
 
 <%= image_tag @divesite.sitemap.url(:original) %>
-<%#= render 'layouts/mainpict' %>
-
   <table>
     <tr>
       <th>このポイントで見られた魚</th>

@@ -2,7 +2,7 @@ class DivesitesController < ApplicationController
   # GET /divesites
   # GET /divesites.xml
   def index
-    @divesites = Divesite.paginate(:page => params[:page], :per_page => 2)
+    @divesites = Divesite.order('area_id asc', 'pointname asc').paginate(:page => params[:page], :per_page => 20)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +14,7 @@ class DivesitesController < ApplicationController
   # GET /divesites/1.xml
   def show
     @divesite = Divesite.find(params[:id])
-    @pictures = @divesite.pictures.joins(:details)
+    @pictures = @divesite.pictures.joins(:details).order('id desc')
     @details = Detail.joins(:pictures).where('pictures.id' => @pictures.map{|p| p.id}).uniq
     respond_to do |format|
       format.html # show.html.erb

@@ -30,7 +30,11 @@ class DetailsController < ApplicationController
       @details = Detail.where('genre_id' => params[:genre_id])
       @genre = Genre.find(params[:genre_id])
     end
+<<<<<<< HEAD
     @details = @details.paginate(:page => params[:page] , :per_page => 20)
+=======
+    @details = @details.paginate(:page => params[:page], :per_page => 20, :order => 'name asc')
+>>>>>>> cleanup
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @details }
@@ -41,15 +45,21 @@ class DetailsController < ApplicationController
   # GET /details/1.xml
   def show
     @detail = Detail.find(params[:id])
+<<<<<<< HEAD
     @pictures = Picture.joins(:details).where('details.id' => params[:id])
 #    @pictures = @pictures.pagenate(:page => params[:page], :per_page => 20)
+=======
+    @pictures = Picture.joins(:details).where('details.id' => params[:id]).order('id desc')
+    @divesites = Divesite.joins(:pictures).where('pictures.id' => @pictures.map{|p| p.id}).uniq
+    @tags = Tag.joins(:pictures).where('pictures.id' => @pictures.map{|p| p.id}).uniq
+    @count = @pictures.count
+    @pictures = @pictures.limit(11)
+>>>>>>> cleanup
     unless params[:picture_id].blank?
       @picture_first = Picture.find(params[:picture_id])
     else
-      @picture_first = Picture.joins(:details).where('details.id' => params[:id]).first
+      @picture_first = Picture.joins(:details).where('details.id' => params[:id]).last
     end
-    @divesites = Divesite.joins(:pictures).where('pictures.id' => @pictures.map{|p| p.id}).uniq
-    @tags = Tag.joins(:pictures).where('pictures.id' => @pictures.map{|p| p.id}).uniq
     unless params[:divesite_id].blank?
       @divesite = Divesite.find(params[:divesite_id])
     end
