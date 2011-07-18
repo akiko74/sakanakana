@@ -41,16 +41,11 @@ class DetailsController < ApplicationController
   # GET /details/1.xml
   def show
     @detail = Detail.find(params[:id])
-<<<<<<< HEAD
-    @pictures = Picture.joins(:details).where('details.id' => params[:id])
-#    @pictures = @pictures.pagenate(:page => params[:page], :per_page => 20)
-=======
     @pictures = Picture.joins(:details).where('details.id' => params[:id]).order('id desc')
     @divesites = Divesite.joins(:pictures).where('pictures.id' => @pictures.map{|p| p.id}).uniq
     @tags = Tag.joins(:pictures).where('pictures.id' => @pictures.map{|p| p.id}).uniq
     @count = @pictures.count
     @pictures = @pictures.limit(11)
->>>>>>> cleanup
     unless params[:picture_id].blank?
       @picture_first = Picture.find(params[:picture_id])
     else
