@@ -153,6 +153,10 @@ list-style:none;
   background:#FFFFFF;
 }
 
+#index-right td {
+  margin:1px;
+}
+
 #whatsnew {
   width:220px;
   float:right;
@@ -274,7 +278,7 @@ list-style:none;
 ul.thumbnail { 
 	list-style-type: none;
 	padding: 0px;
-	margin:3px 0px 3px 3px;
+	margin:3px 2px 3px 3px;
 	 }
 
 ul.thumbnail li {
@@ -284,9 +288,10 @@ ul.thumbnail li {
  list-style-type: none;
 }
 
-ul.thumbnail li img {
+ul.thumbnail img {
  width: 105px;
  height: 80px;
+ margin: 2px 0px; 
 }
 
 ul.thumbnail li a { display: block; }

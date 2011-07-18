@@ -2,7 +2,7 @@ class DivesitesController < ApplicationController
   # GET /divesites
   # GET /divesites.xml
   def index
-    @divesites = Divesite.paginate(:page => params[:page], :per_page => 20)
+    @divesites = Divesite.order('area_id asc', 'pointname asc').paginate(:page => params[:page], :per_page => 20)
 
     respond_to do |format|
       format.html # index.html.erb

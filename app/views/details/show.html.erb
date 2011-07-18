@@ -5,8 +5,8 @@
 <%= render 'layouts/javascript' %>
 <%= notice %>
 
-<% unless @picture_first.blank? %>
 <div id="index-right" class="clearfix">
+  <% unless @picture_first.blank? %>
     <ul class="thumbnail">
         <div id="thumbnail">
            <%= image_tag @picture_first.image.url(:thumb) %>
@@ -18,17 +18,19 @@
     <%= link_to '全部見る', picture_path(:id=> @picture_first.id) %>
     <% end %>
     </ul>
-  </div>
+  <% end %>
+</div>
 
 <div id="main">
     <p><%= @detail.name %></p>
+    <% unless @picture_first.blank? %>
        <div class="slideshow">
              <%= image_tag @picture_first.image.url(:medium) %>
              <% @pictures.each do |picture| %>
              <%= image_tag picture.image.url(:medium) %>
              <% end %>
        </div>
-<% end %>
+    <% end %>
 
   <table>
      <tr>

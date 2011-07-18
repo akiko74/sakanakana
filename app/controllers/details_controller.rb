@@ -29,8 +29,8 @@ class DetailsController < ApplicationController
     unless params[:genre_id].blank?
       @details = Detail.where('genre_id' => params[:genre_id])
       @genre = Genre.find(params[:genre_id])
-      @details = @details.paginate(:page => params[:page] , :per_page => 20, :order => "name asc")
     end
+    @details = @details.paginate(:page => params[:page], :per_page => 20, :order => 'name asc')
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @details }
