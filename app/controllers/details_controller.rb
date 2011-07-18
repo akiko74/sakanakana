@@ -30,11 +30,7 @@ class DetailsController < ApplicationController
       @details = Detail.where('genre_id' => params[:genre_id])
       @genre = Genre.find(params[:genre_id])
     end
-<<<<<<< HEAD
-    @details = @details.paginate(:page => params[:page] , :per_page => 20)
-=======
     @details = @details.paginate(:page => params[:page], :per_page => 20, :order => 'name asc')
->>>>>>> cleanup
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @details }
