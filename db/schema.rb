@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(:version => 20110618154830) do
     t.integer  "divesite_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_time",  :null => false
+    t.datetime "end_time",    :null => false
     t.datetime "start_date",  :null => false
     t.datetime "end_date",    :null => false
   end

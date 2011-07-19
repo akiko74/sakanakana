@@ -2,7 +2,7 @@ class GenresController < ApplicationController
   # GET /genres
   # GET /genres.xml
   def index
-    @genres = Genre.paginate(:page => params[:page], :per_page => 20)
+    @genres = Genre.paginate(:page => params[:page], :per_page => 20, :order => 'genrename asc')
 
     respond_to do |format|
       format.html # index.html.erb
