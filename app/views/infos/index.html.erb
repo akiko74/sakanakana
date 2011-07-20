@@ -1,0 +1,32 @@
+<div id="index-right">
+</div>
+
+<div id="main">
+<table>
+  <tr>
+    <th>内容</th>
+    <th>リンク先</th>
+    <th>更新日</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @infos.each do |info| %>
+  <tr>
+    <td><%= info.content %></td>
+    <td><%= info.url %></td>
+    <td><%= info.created_at.strftime("%Y-%m-%d") %>
+    <% if admin_signed_in? %>
+    <td><%= link_to 'Show', info %></td>
+    <td><%= link_to 'Edit', edit_info_path(info) %></td>
+    <td><%= link_to 'Destroy', info, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Info', new_info_path %>
+</div>

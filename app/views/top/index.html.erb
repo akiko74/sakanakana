@@ -12,16 +12,23 @@
     <p>TOPICS</p>
  </div>
  <div id="whatsnew_cont">
-     <li>更新情報</li>
-     <li>更新情報２</li>
+     <% @infos.each do |info| %>
+     <dl>
+       <dt><%= info.created_at.strftime("%Y-%m-%d") %></dt>
+         <dd><%= info.content %></dd>
+         <% unless info.url.nil? %>
+         <dd><%= link_to '見る', info.url %></dd>
+         <% end %>
+     </dl>
+     <% end %>
  </div>
  <div id="twitter">
    <%= render 'widget' %>
  </div>
  <% if admin_signed_in? %>
  <%= link_to 'ログアウト', destroy_admin_session_path %>
- <% else %>
- <%= link_to 'ログイン',  new_admin_session_path %>
+ <%# else %>
+ <%#= link_to 'ログイン',  new_admin_session_path %>
  <% end %>
 </div>
 

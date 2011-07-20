@@ -1,4 +1,7 @@
 Sakana::Application.routes.draw do
+
+  resources :infos
+
   devise_for :admins
 
   resources :divelogs

@@ -176,6 +176,10 @@ list-style:none;
   list-style: none;
 }
 
+#whatsnew_cont dt dd {
+  text-align:left;
+}
+
 #twitter {
   width:220px;
   float:right;

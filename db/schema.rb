@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110618154830) do
+ActiveRecord::Schema.define(:version => 20110720034354) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -58,8 +58,6 @@ ActiveRecord::Schema.define(:version => 20110618154830) do
     t.integer  "divesite_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "start_time",  :null => false
-    t.datetime "end_time",    :null => false
     t.datetime "start_date",  :null => false
     t.datetime "end_date",    :null => false
   end
@@ -90,6 +88,13 @@ ActiveRecord::Schema.define(:version => 20110618154830) do
     t.datetime "updated_at"
   end
 
+  create_table "infos", :force => true do |t|
+    t.string   "content"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pictures", :force => true do |t|
     t.integer  "divesite_id"
     t.integer  "divelog_id"
@@ -108,6 +113,13 @@ ActiveRecord::Schema.define(:version => 20110618154830) do
 
   create_table "tags", :force => true do |t|
     t.string   "tagname",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "whatsnews", :force => true do |t|
+    t.string   "content"
+    t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
