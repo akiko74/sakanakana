@@ -22,7 +22,7 @@
 </div>
 
 <div id="main">
-    <p><%= @detail.name %></p>
+    <h3><%= @detail.name %></h3>
     <% unless @picture_first.blank? %>
        <div class="slideshow">
              <%= image_tag @picture_first.image.url(:medium) %>

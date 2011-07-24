@@ -58,6 +58,13 @@ margin:0px;
 padding:0px 10px
 }
 
+/*各詳細ページの見出し*/
+h3{
+font-size:12px;
+line-height:2.4;
+font-weight:bold;
+}
+
 p {
 padding: 0px;
 margin: 5px 0px;
@@ -174,10 +181,16 @@ list-style:none;
   margin-top:4px;
   line-height:1.5;
   list-style: none;
+  text-align:left;
 }
 
-#whatsnew_cont dt dd {
-  text-align:left;
+#whatsnew_cont dt {
+  font-weight:bold;
+}
+
+#whatsnew_cont dd {
+  padding: 0.2em;
+  margin-left: 1em;
 }
 
 #twitter {
@@ -304,6 +317,7 @@ ul.thumbnail li a { display: block; }
 /* 詳細ページコンテンツ設定 */
 #main h2 {
   margin:auto;
+  line-height:3;
   padding: 5px;
   font-weight: bold;
   font-size: 12px;
@@ -314,7 +328,6 @@ ul.thumbnail li a { display: block; }
 #main p {
    line-height:2;
    font-family:Osaka,Verdana,Arial,Helvetica,sans-serif;
-   font-weight:bold;
    margin:0px;
    padding:5px 5px;
    color:#444444;

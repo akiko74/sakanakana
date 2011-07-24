@@ -15,9 +15,9 @@
      <% @infos.each do |info| %>
      <dl>
        <dt><%= info.created_at.strftime("%Y-%m-%d") %></dt>
-         <dd><%= info.content %></dd>
+         <dd><%= info.content %>
          <% unless info.url.nil? %>
-         <dd><%= link_to '見る', info.url %></dd>
+         <%= link_to '見る', info.url %></dd>
          <% end %>
      </dl>
      <% end %>
@@ -40,7 +40,9 @@
         <% end %>
   </div>
  <div id="main_cont">
-   <p>メインコンテテンツの場所</p>
+   <h3>さかなかな？</h3>
+   <p>さかなかな？はダイビング中に出会った魚もサカナじゃない何かもすべてひっくるめてかわいい・面白い・群れ群れ・な写真を掲載する図鑑的サイトです。</p>
+   <p>タイのタオ島が中心ですが、その他さまざまな地域でダイビングしたときの記憶と記録をご紹介します。</p>
  </div>
 </div>
 
