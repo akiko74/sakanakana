@@ -14,10 +14,11 @@
            <% @pictures.each do |picture| %>
            <% @detail = picture.details.last %>
         <div id="thumbnail">
-           <li><%= link_to(image_tag(picture.image.url(:thumb)),picture.image.url(:medium), :rev=> detail_path(:id =>@detail.id, :picture_id => picture.id) ) %></li>
+           <li><%= link_to(image_tag(picture.image.url(:thumb)), picture.image.url(:medium), :rev => detail_path(:id =>@detail.id, :picture_id => picture.id), :title => @detail.name ) %></li>
         </div>
            <% end %>
     </ul>
+  <%= will_paginate @pictures %>
   </div>
 
 <div id="main">

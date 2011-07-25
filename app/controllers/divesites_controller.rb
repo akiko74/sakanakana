@@ -16,6 +16,7 @@ class DivesitesController < ApplicationController
     @divesite = Divesite.find(params[:id])
     @pictures = @divesite.pictures.joins(:details).order('id desc')
     @details = Detail.joins(:pictures).where('pictures.id' => @pictures.map{|p| p.id}).uniq
+    @pictures = @pictures.paginate(:page => params[:page], :per_page => 4)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @divesite }

@@ -36,7 +36,9 @@
 	height: 250px;
 	margin: 0 auto;
 }
-#lightbox-container-image { padding: 10px; }
+#lightbox-container-image { padding: 10px;
+        cursor:pointer;
+ }
 #lightbox-loading {
 	position: absolute;
 	top: 40%;
@@ -52,13 +54,14 @@
 	left: 0;
 	height: 100%;
 	width: 100%;
-	z-index: 10;
+	z-index: 10
 }
 #lightbox-container-image-box > #lightbox-nav { left: 0; }
-#lightbox-nav a { outline: none;}
+#lightbox-nav a { outline: none;
+}
 #lightbox-nav-btnPrev, #lightbox-nav-btnNext {
-	width: 49%;
-	height: 100%;
+	width: 15%;
+	height: 50%;
 	zoom: 1;
 	display: block;
 }
@@ -88,7 +91,10 @@
 	float: left; 
 	text-align: left; 
 }	
-#lightbox-image-details-caption { font-weight: bold; }
+#lightbox-image-details-caption { font-weight: bold; 
+                                  font-size: 2em;
+}
+
 #lightbox-image-details-currentNumber {
 	display: block; 
 	clear: left; 
