@@ -1,0 +1,7 @@
+    <% unless @picture_first.nil? %>
+      <ul class="thumbnail">
+        <div id="thumbnail">
+        <%= link_to(image_tag(@picture_first.image.url(:medium)), @picture_first.image.url(:medium)) %>
+        </div>
+      </ul>
+    <% end %>

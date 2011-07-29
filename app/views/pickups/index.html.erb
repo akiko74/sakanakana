@@ -1,0 +1,37 @@
+<% content_for :title do %>
+オススメ写真一覧
+<% end %>
+
+<div id="index-right">
+</div>
+
+<div id="main">
+<table>
+  <tr>
+    <th>更新日</th>
+    <th>コメント</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pickups.each do |pickup| %>
+  <tr>
+    <td><%= link_to pickup.updated_at, pickup %></td>
+    <td><%= truncate(pickup.comment, :length => 15) %></td>
+    <% if admin_signed_in? %>
+    <td><%= link_to 'Edit', edit_pickup_path(pickup) %></td>
+    <td><%= link_to 'Destroy', pickup, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+<p>
+<%= will_paginate @pickups %>
+</p>
+<br />
+
+<% if admin_signed_in? %>
+<%= link_to 'New Pickup', new_pickup_path %>
+<% end %>
+
+</div>

@@ -9,7 +9,7 @@
   <div id="main_cont">
 <table>
   <tr>
-    <th>Tag</th>
+    <th>タグ/Tag</th>
     <th></th>
     <th></th>
     <th></th>
@@ -18,7 +18,7 @@
 <% @tags.each do |tag| %>
   <tr>
     <td><%= tag.tagname %></td>
-    <td><%= link_to 'Show', tag %></td>
+    <td><%= link_to '見る', tag %></td>
     <% if admin_signed_in? %>
     <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
     <td><%= link_to 'Destroy', tag, :confirm => 'Are you sure?', :method => :delete %></td>

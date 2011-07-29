@@ -1,5 +1,7 @@
 Sakana::Application.routes.draw do
 
+  resources :pickups
+
   resources :infos
 
   devise_for :admins

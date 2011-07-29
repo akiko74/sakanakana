@@ -44,8 +44,7 @@ class DetailsController < ApplicationController
     @pictures = Picture.joins(:details).where('details.id' => params[:id]).order('id desc')
     @divesites = Divesite.joins(:pictures).where('pictures.id' => @pictures.map{|p| p.id}).uniq
     @tags = Tag.joins(:pictures).where('pictures.id' => @pictures.map{|p| p.id}).uniq
-    @count = @pictures.count
-    @pictures = @pictures.limit(11)
+    @pictures = @pictures.paginate(:page => params[:page], :per_page => 10, :order => ('updated_at DESC'))
     unless params[:picture_id].blank?
       @picture_first = Picture.find(params[:picture_id])
     else

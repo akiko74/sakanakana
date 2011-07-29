@@ -1,32 +1,17 @@
 <% content_for :title do @tag.tagname %>
 <% end %>
 
-<%= render 'layouts/javascript' %>
-
 <%= notice %>
-<div id ="index-right" class="clearfix">
- <ul class="thumbnail">
-    <div id="thumbnail">
-      <% @pictures.each do |picture| %>
-        <li><%= image_tag picture.image.url(:thumb) %></li>
-      <% end %>
-    </div>
-  </ul>
-</div>
 
-
+<%= render 'layouts/shared/rightthumb' %>
 
 <div id = "main">
-  <table>
-    <tr>
-      <th>"<%= @tag.tagname %>"タグがついている写真</th>
-    <tr>
-   </table>
- <div id = "main_pict">
-
-<%= render 'layouts/mainpict' %>
-
+      <h3>"<%= @tag.tagname %>"タグがついている写真</h3>
+ <%= render 'layouts/shared/lightbox' %>
  </div>
  <div id = "maincont">
  </div>
+ <table>
+ <tr><%= link_to 'タグ一覧に戻る', tags_path %></tr>
+ </table>
 </div>

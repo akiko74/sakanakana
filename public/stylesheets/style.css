@@ -306,8 +306,8 @@ ul.thumbnail li {
 }
 
 ul.thumbnail img {
- width: 105px;
- height: 80px;
+  width: 105px;
+/*  height: 80px; */
  margin: 2px 0px; 
 }
 
@@ -331,6 +331,7 @@ ul.thumbnail li a { display: block; }
    margin:0px;
    padding:5px 5px;
    color:#444444;
+   text-align:left;
 }
 
 #main table {

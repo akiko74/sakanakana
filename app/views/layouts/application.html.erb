@@ -7,6 +7,7 @@
 <!--  <%= stylesheet_link_tag :all %> --!>
   <%= stylesheet_link_tag 'style' %>
   <%= stylesheet_link_tag 'lightbox' %>
+  <%= stylesheet_link_tag 'will_paginate' %>
   <%= javascript_include_tag(:defaults) %>
   <%= javascript_include_tag 'jquery.cycle.all' %>
   <%= javascript_include_tag 'jquery.lightbox' %>
@@ -43,9 +44,11 @@
   <div id="index-left">
       <div id="menu">
         <ul>
-          <li><%= link_to 'ダイビングログ', divelogs_path %></li>
-          <li><%= link_to 'ポイント名', divesites_path %></li>
-          <li><p>写真を探す</p>
+          <% @pickup_last = Pickup.last %>
+          <li><%= link_to 'オススメの写真', pickup_path(:id => @pickup_last.id) %></li>
+          <li><%= link_to 'ダイビングログを見る', divelogs_path %></li>
+          <li><%= link_to 'ポイント名を見る', divesites_path %></li>
+          <li><p>魚の写真を探す</p>
              <ul>
                <li><%= link_to '名前で探す', details_path %></li>
                <li><%= link_to '種類で探す', genres_path %></li>

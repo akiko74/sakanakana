@@ -1,38 +1,15 @@
 <% content_for :title do %>
 <%= @detail.name %>
 <% end %> 
-
-<%= render 'layouts/javascript' %>
 <%= notice %>
 
-<div id="index-right" class="clearfix">
-  <% unless @picture_first.blank? %>
-    <ul class="thumbnail">
-        <div id="thumbnail">
-           <%= image_tag @picture_first.image.url(:thumb) %>
-           <% @pictures.each do |picture| %>
-           <%= image_tag picture.image.url(:thumb) %>
-           <% end %>
-        </div>
-    <% if @count > 11 %>
-    <%= link_to '全部見る', picture_path(:id=> @picture_first.id) %>
-    <% end %>
-    </ul>
-  <% end %>
-</div>
+<%= render 'layouts/shared/rightthumb' %>
 
 <div id="main">
     <h3><%= @detail.name %></h3>
-    <% unless @picture_first.blank? %>
-       <div class="slideshow">
-             <%= image_tag @picture_first.image.url(:medium) %>
-             <% @pictures.each do |picture| %>
-             <%= image_tag picture.image.url(:medium) %>
-             <% end %>
-       </div>
-    <% end %>
+ <%= render 'layouts/shared/lightbox' %>  
 
-  <table>
+<table>
      <tr>
      <th>種別</th>
         <td><%= @detail.genre.genrename %></td>
