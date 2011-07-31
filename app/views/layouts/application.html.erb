@@ -1,10 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
   <head>
-    <!-- <title><%#= pagetitles() %></title> --!>
-    <title><%= content_for?(:title) ? yield(:title)+" | タオ島、他ダイビングスポットで出会った魚たち" : "タオ島、他ダイビングスポットで出会った魚たち" %></title>
+    <title><%= content_for?(:title) ? yield(:title)+" | さかなかな？-タオ島、他ダイビングスポットで出会った魚たち" : "さかなかな？-タオ島、他ダイビングスポットで出会った魚たち" %></title>
 
-<!--  <%= stylesheet_link_tag :all %> --!>
   <%= stylesheet_link_tag 'style' %>
   <%= stylesheet_link_tag 'lightbox' %>
   <%= stylesheet_link_tag 'will_paginate' %>
@@ -36,7 +34,7 @@
        <%= notice %>
        <%= alert %>
   <div id="header_pict">
-   <%= link_to (image_tag('/images/sample_top.jpg'), root_path) %>
+   <%= link_to (image_tag('/images/sample_top.jpg', :alt => 'さかなかな？'), root_path) %>
   </div>
   <div id="header_cont">
    <h2>タイのタオ島を中心に、ダイビング中に出会った魚の写真を掲載しています</h2>
@@ -45,7 +43,7 @@
       <div id="menu">
         <ul>
           <% @pickup_last = Pickup.last %>
-          <li><%= link_to 'オススメの写真', pickup_path(:id => @pickup_last.id) %></li>
+          <li><%= link_to_unless(@pickup_last.nil?, 'オススメの写真', pickup_path(:id => @pickup_last.id)) %></li>
           <li><%= link_to 'ダイビングログを見る', divelogs_path %></li>
           <li><%= link_to 'ポイント名を見る', divesites_path %></li>
           <li><p>魚の写真を探す</p>

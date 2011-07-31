@@ -30,6 +30,6 @@
 <p><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="akiko74" data-lang="ja">ツイート</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></p>
 <% if admin_signed_in? %>
 <p><%= link_to 'Edit', edit_pickup_path(@pickup) %></p>
+<p><%= link_to 'Destroy', @pickup, :confirm => 'Are you sure?', :method => :delete %></p>
 <% end %>
-<p><%= link_to 'Back', pickups_path %></p>
- </div>
+</div>
