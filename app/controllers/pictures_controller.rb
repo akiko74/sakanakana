@@ -2,12 +2,6 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.xml
 
-#  def originalpict
-#    @picture=Picture.find(params[:id])
-#    raise ActiveRecord::RecordNotFound unless @picture.originalpict_exist?
-#    send_file(@picture.originalpict_filepath)
-#  end
-
   def index
     @pictures = Picture.order('id DESC').limit(10)
 
@@ -21,15 +15,10 @@ class PicturesController < ApplicationController
   # GET /pictures/1.xml
   def show
     @picture = Picture.find(params[:id])
-#    unless (params[:detail_id]).nil 
      @pictures = Picture.joins(:details).where('details.id'=> params[:detail_id])
-#      @detail = Detail.find(params[:detail_id])
-#    else
-#      @detail = Detail.find(1)
-#    end
     respond_to do |format|
-      format.html # show.html.erb
       format.xml  { render :xml => @picture }
+      format.html # show.html.erb
     end
   end
 
@@ -52,7 +41,6 @@ class PicturesController < ApplicationController
        @details = Detail.find(:all, :conditions => ["name like ? ", '%' + params[:keyword] + "%"])
       end
 
-#    @pictures = Picture.joins(:details).where('details.id'=> params[:detail_id])
      unless params[:detail_id].blank?
      @detail = Detail.find(params[:detail_id])
      end
@@ -64,7 +52,7 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
-      @divelog = Divelog.order('id DESC').where('start_date < ? and end_date > ?', @picture.exif.shot_date_time, @picture.exif.shot_date_time).last
+      @divelog = Divelog.order('start_date DESC').where('start_date < ? and end_date > ?', @picture.exif.shot_date_time, @picture.exif.shot_date_time).last
       @picture.divelog_id = @divelog.id
       @picture.divesite_id = @divelog.divesite_id
       @picture.update_attributes(:divesite_id)
