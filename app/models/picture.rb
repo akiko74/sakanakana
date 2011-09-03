@@ -9,9 +9,10 @@ class Picture < ActiveRecord::Base
   has_attached_file :image, :styles => { :medium => "720x540>", :thumb => "105x80>" }
 
   after_save :process_exif
-#  before_update :update_divesite, only => 'select'
 
     def process_exif
+      cnt = Exif.where(:picture_id => self.id).count
+      if cnt == 0 
       file = self.image.path
         exif = EXIFR::JPEG.new file
         pic_exif = self.build_exif
@@ -20,12 +21,6 @@ class Picture < ActiveRecord::Base
             pic_exif.shot_date_time = exif.date_time
         pic_exif.save
       end
-
-#   def update_divesite
-#     @picture = Picture.find(params[:id])
-#     @divelog = Divelog.find(@picture.divelog_id.to_i)
-#     @picture.divesite_id = Divelog.divesite_id.to_i
-#     @picture.update
-#   end      
+    end
 end
 
