@@ -18,7 +18,7 @@ Sakana::Application.routes.draw do
 
   resources :details
 
-  resources :pictures
+  resources :pictures 
 
   root :to => "top#index"
   resource :top ,:controller => 'top' do

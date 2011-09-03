@@ -3,7 +3,7 @@
 
 <div id="main">
 <table>
-<td><%= image_tag @picture.image.url(:thumb) %></td>
+<td><%= image_tag @picture.image.url(:medium) %></td>
 <tr>
  <td>検索</td>
 </tr>
@@ -28,11 +28,20 @@
 </tr>
 
 <tr>
+ <td>
+    <%= form_tag ({:action => 'edit'}, {:method => 'get' }) do %>
+    <%= collection_select(@divelog, :divelog_select, Divelog.all, :id, :start_date) %>
+    <%= submit_tag "検索"%>
+    <% end %>
+ </td>
+</tr>
+
+<tr>
 <td>
 <%= form_for @picture do |f| %>
 <% unless @detail.nil? %>
 <%= f.label :detail_name %><br />
-<input name="detail_id" type="hidden" value="<%= @detail.id %>">
+<input name="detail_ids[]" type="hidden" value="<%= @detail.id %>">
 <%= f.label :tag_name %><br />
 <% end %>
   <% Tag.all.each do |tag| %>
@@ -42,6 +51,12 @@
          value="<%=tag.id %>"
         <%= @picture.tag_ids.include?(tag.id) ? 'checked' : ''%>
    ><%= tag.tagname %>
+  <% end %>
+  <% unless @divelog.nil? %>
+  <%= f.label :divelog_id %><br />
+  <input name="divelog_id" type="hidden" value="<%= @divelog.id %>">
+  <%= f.label :divesite_id %><br />
+  <input name="divesite_id" type="hidden" value="<%= @divelog.divesite_id %>">
   <% end %>
   <div class="actions">
   <%= f.submit %>
@@ -54,4 +69,8 @@
 <%= link_to 'Show', @picture %> |
 <%= link_to 'Back', pictures_path %>
 
+<% unless @divelog.nil? %>
+<%= @divelog.start_date %>
+<%= @divelog.divesite_id %>
+<% end %>
 </div>

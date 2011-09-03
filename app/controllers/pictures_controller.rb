@@ -44,6 +44,10 @@ class PicturesController < ApplicationController
      unless params[:detail_id].blank?
      @detail = Detail.find(params[:detail_id])
      end
+
+     unless params[:divelog_select].nil?
+      @divelog = Divelog.find(params[:divelog_select])
+     end
   end
   
   # POST /pictures.xml
@@ -71,8 +75,9 @@ class PicturesController < ApplicationController
   def update
     @picture = Picture.find(params[:id])
     @picture.tag_ids = params[:tag_ids]
-    @detail = Detail.find(params[:detail_id])
-    @picture.details << @detail
+    @picture.detail_ids = params[:detail_ids]
+    @picture.divesite_id = params[:divesite_id]
+    @picture.divelog_id = params[:divelog_id]
 
     respond_to do |format|
       if @picture.update_attributes(params[:picture])
