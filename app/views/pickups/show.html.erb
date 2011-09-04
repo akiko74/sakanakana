@@ -1,7 +1,7 @@
 <%= render 'layouts/shared/javascript' %>
 
 <% content_for :title do %>
-<%= @pickup.created_at.strftime("%Y-%m-%d") %> &nbsp;オススメ写真
+<%= @pickup.created_at.strftime("%Y-%m-%d") %> &nbsp;オススメ写真(<%= @detail.name %>)
 <% end %>
 
 <div id="index-right">
@@ -27,9 +27,17 @@
  <div id="main_cont">
  <p><%= @pickup.comment %></p>
  <p><%= link_to @detail.name, detail_path(@detail, :picture_id => @picture_first.id) %>を見る</p>
-<p><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="akiko74" data-lang="ja">ツイート</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></p>
+<table><tr><td><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="akiko74" data-lang="ja">ツイート</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></td>
+<td><div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=142642749161266&amp;xfbml=1"></script><fb:like href="" send="true" layout="button_count" width="100" show_faces="false" font="tahoma"></fb:like></td>
+<td><g:plusone size="medium"></g:plusone></td>
+</tr>
+</table>
+
 <% if admin_signed_in? %>
 <p><%= link_to 'Edit', edit_pickup_path(@pickup) %></p>
 <p><%= link_to 'Destroy', @pickup, :confirm => 'Are you sure?', :method => :delete %></p>
 <% end %>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+  {lang: 'ja'}
+</script>
 </div>

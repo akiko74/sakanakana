@@ -80,6 +80,7 @@ margin: 5px 0px;
 } 
 
 #content {
+  float: left;
   text-align: left;
   width: 100%;
   margin:0px auto;
@@ -152,6 +153,7 @@ list-style:none;
 #index-right {
   width:230px;
   float:right;
+  margin-left: -230px;
   margin-right:0px;
   margin-top:0px;
   height: 100%;
