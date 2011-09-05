@@ -56,7 +56,7 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
-      @divelog = Divelog.order('start_date DESC').where('start_date < ? and end_date > ?', @picture.exif.shot_date_time, @picture.exif.shot_date_time).last
+      @divelog = Divelog.order('start_date DESC').where('start_date < ? and end_date > ?', @picture.exif.shot_date_time, @picture.exif.shot_date_time).first
       @picture.divelog_id = @divelog.id
       @picture.divesite_id = @divelog.divesite_id
       @picture.update_attributes(:divesite_id)
@@ -76,8 +76,10 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     @picture.tag_ids = params[:tag_ids]
     @picture.detail_ids = params[:detail_ids]
+    unless params[:divesite_id].nil?
     @picture.divesite_id = params[:divesite_id]
     @picture.divelog_id = params[:divelog_id]
+    end
 
     respond_to do |format|
       if @picture.update_attributes(params[:picture])
