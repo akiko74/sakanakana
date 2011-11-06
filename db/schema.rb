@@ -58,8 +58,6 @@ ActiveRecord::Schema.define(:version => 20110725145201) do
     t.integer  "divesite_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "start_time",  :null => false
-    t.datetime "end_time",    :null => false
     t.datetime "start_date",  :null => false
     t.datetime "end_date",    :null => false
   end
@@ -122,6 +120,13 @@ ActiveRecord::Schema.define(:version => 20110725145201) do
 
   create_table "tags", :force => true do |t|
     t.string   "tagname",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "whatsnews", :force => true do |t|
+    t.string   "content"
+    t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

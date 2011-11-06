@@ -38,7 +38,7 @@
 
 <tr>
 <td>
-<%= form_for @picture do |f| %>
+<%= form_for (@picture, {}, :html => { :multipart => true }) do |f| %>
 <% unless @detail.nil? %>
 <%= f.label :detail_name %><br />
 <input name="detail_ids[]" type="hidden" value="<%= @detail.id %>">
@@ -57,7 +57,9 @@
   <input name="divelog_id" type="hidden" value="<%= @divelog.id %>">
   <%= f.label :divesite_id %><br />
   <input name="divesite_id" type="hidden" value="<%= @divelog.divesite_id %>">
-  <% end %>
+  <% end %><br />
+  <%= f.label :image %><br />
+  <%= f.file_field :image %> 
   <div class="actions">
   <%= f.submit %>
   </div>
