@@ -1,30 +1,56 @@
-<%= render 'layouts/shared/javascript' %>
+<% content_for :title do @divelog.start_date %>
+<% end %>
 
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.slideshowtop').cycle({
+    fx: 'fade',
+    speed: 4000
+      });
+  });
+</script>
 
-<%= render 'layouts/shared/rightthumb' %>
+  <div id="index-right" class="clearfix">
+     <ul class="thumbnail">
+     <% @pictures.each do |picture| %>
+        <% @detail = picture.details.first %>
+           <li><%= link_to (image_tag picture.image.url(:thumb)), detail_path(@detail, :picture_id => picture.id) %></li>
+           <% end %>
+    </ul>
+    <br />
+    <p><%= will_paginate @pictures %></p>
+  </div>
 
 <div id="main">
-<p id="notice"><%= notice %></p>
-  <div id="main_pict">
-
-<%= render 'layouts/shared/mainpict' %>
-
-<div id="maincont">
-<p>
-  <b>ダイビングの日付:</b>
-  <%= @divelog.start_date %><br />
-  <b>ポイント:</b>
-  <%= @divelog.divesite.pointname %><br />
-</p>
-
-
-<% @details.each do |detail| %>
-<% @picture = detail.pictures.first %>
- <tr>
-   <td><%= link_to detail.name, picture_path(:id => @picture.id, :detail_id => detail.id) %></td>
- <% end %>
- </tr>
-
-  </div>
+ <div class="slideshowtop">
+   <% @pictures.each do |picture| %>
+     <% @detail=picture.details.first %>
+     <%= link_to (image_tag picture.image.url(:medium)), detail_path(@detail, :picture_id => picture.id ) %>
+   <% end %>
  </div>
+<p id="notice"><%= notice %></p>
+
+<table>
+<tr>
+  <th>ダイビングの日付:</th>
+</tr>
+<tr>
+  <td><%= @divelog.start_date %></td>
+</tr>
+<tr>
+  <th>ポイント:</th>
+</tr>
+<tr>
+  <td><%= @divelog.divesite.pointname %>／<%= @divelog.divesite.area.areaname %></td>
+</tr>
+<tr>
+   <th>見られた魚</th>
+</tr>
+   <% @details.each do |detail| %>
+<tr>
+   <% @picture = detail.pictures.first %>
+   <td><%= link_to detail.name, detail_path(:id => detail.id, :picture_id => @picture.id) %><% end %>
+   </td>
+</tr>
+</table>
 </div>

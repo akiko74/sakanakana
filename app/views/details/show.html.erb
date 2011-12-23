@@ -53,12 +53,7 @@
          </td>
       </tr>
     <tr>
-      <td><%= link_to '魚一覧に戻る', details_path %></td>
-      <% unless @divesite.blank? %>
-      <tr>
-      <td><%= link_to @divesite.pointname, divesite_path(:id => @divesite.id)%>に戻る</td>
-      </tr>
-      <% end %>
+      <td><%= link_to('戻る', :back) %></td>
     </tr>
 </table>
 </div>

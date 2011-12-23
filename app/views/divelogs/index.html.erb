@@ -15,7 +15,7 @@
   <tr>
   <% @divelogs.each do |divelog| %>
     <tr>
-      <td><%= divelog.start_date.strftime("%Y-%m-%d %H:%M") %></td>
+      <td><%= link_to divelog.start_date.strftime("%Y-%m-%d %H:%M"), divelog %></td>
       <td><%= link_to divelog.divesite.pointname, divesite_path(:id=> divelog.divesite.id) %>
         <% if admin_signed_in? %>
           <td><%= link_to 'Edit', edit_divelog_path(divelog) %></td>
