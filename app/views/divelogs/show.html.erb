@@ -12,18 +12,18 @@
 
   <div id="index-right" class="clearfix">
      <ul class="thumbnail">
-     <% @pictures.each do |picture| %>
+     <% @pictures_page.each do |picture| %>
         <% @detail = picture.details.first %>
            <li><%= link_to (image_tag picture.image.url(:thumb)), detail_path(@detail, :picture_id => picture.id) %></li>
            <% end %>
     </ul>
     <br />
-    <p><%= will_paginate @pictures %></p>
+    <p><%= will_paginate @pictures_page %></p>
   </div>
 
 <div id="main">
  <div class="slideshowtop">
-   <% @pictures.each do |picture| %>
+   <% @pictures_page.each do |picture| %>
      <% @detail=picture.details.first %>
      <%= link_to (image_tag picture.image.url(:medium)), detail_path(@detail, :picture_id => picture.id ) %>
    <% end %>
@@ -46,10 +46,10 @@
 <tr>
    <th>見られた魚</th>
 </tr>
+<tr><td>
    <% @details.each do |detail| %>
-<tr>
    <% @picture = detail.pictures.first %>
-   <td><%= link_to detail.name, detail_path(:id => detail.id, :picture_id => @picture.id) %><% end %>
+   <%= link_to detail.name, detail_path(:id => detail.id, :picture_id => @picture.id) %><% end %>
    </td>
 </tr>
 </table>
