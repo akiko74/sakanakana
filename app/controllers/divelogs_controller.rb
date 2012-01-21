@@ -15,7 +15,7 @@ class DivelogsController < ApplicationController
   def show
     @divelog = Divelog.find(params[:id])
     @pictures = Picture.where(:divelog_id => params[:id])
-    @pictures_page = @pictures.paginate(:page => params[:page], :per_page => 10)
+    @pictures = @pictures.paginate(:page => params[:page], :per_page => 10)
     @details = Detail.joins(:pictures).where('pictures.id' =>@pictures.map{|p| p.id}).uniq
     respond_to do |format|
       format.html # show.html.erb

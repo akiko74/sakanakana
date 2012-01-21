@@ -6,10 +6,10 @@
 <%= render 'layouts/shared/rightthumb' %>
 
 <div id="main">
-    <h3><%= @detail.name %></h3>
- <%= render 'layouts/shared/lightbox' %>  
+    <h3><%= @detail.name %></h3> 
 
 <table>
+    <%= image_tag(@picture_first.image.url(:original)) %>
      <tr>
      <th>種別</th>
         <td><%= @detail.genre.genrename %></td>

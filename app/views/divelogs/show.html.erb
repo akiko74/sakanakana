@@ -1,33 +1,9 @@
 <% content_for :title do @divelog.start_date %>
 <% end %>
 
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.slideshowtop').cycle({
-    fx: 'fade',
-    speed: 4000
-      });
-  });
-</script>
-
-  <div id="index-right" class="clearfix">
-     <ul class="thumbnail">
-     <% @pictures_page.each do |picture| %>
-        <% @detail = picture.details.first %>
-           <li><%= link_to (image_tag picture.image.url(:thumb)), detail_path(@detail, :picture_id => picture.id) %></li>
-           <% end %>
-    </ul>
-    <br />
-    <p><%= will_paginate @pictures_page %></p>
-  </div>
-
+<%= render 'layouts/shared/rightthumb' %>
 <div id="main">
- <div class="slideshowtop">
-   <% @pictures_page.each do |picture| %>
-     <% @detail=picture.details.first %>
-     <%= link_to (image_tag picture.image.url(:medium)), detail_path(@detail, :picture_id => picture.id ) %>
-   <% end %>
- </div>
+
 <p id="notice"><%= notice %></p>
 
 <table>

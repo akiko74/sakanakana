@@ -7,7 +7,7 @@
 
 <div id = "main">
       <h3>"<%= @tag.tagname %>"タグがついている写真</h3>
- <%= render 'layouts/shared/lightbox' %>
+ <%= image_tag(@pictures.last.image.url(:original))%>
  </div>
  <div id = "maincont">
  </div>
