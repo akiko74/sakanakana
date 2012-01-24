@@ -9,7 +9,9 @@
     <h3><%= @detail.name %></h3> 
 
 <table>
+    <% unless @picture_first.nil? %>
     <%= image_tag(@picture_first.image.url(:original)) %>
+    <% end %>
      <tr>
      <th>種別</th>
         <td><%= @detail.genre.genrename %></td>

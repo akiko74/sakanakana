@@ -1,5 +1,6 @@
 <%= render 'layouts/shared/javascript' %>
 
+<% unless @pictures.nil? %>
   <div id="index-right" class="clearfix">
     <ul class="thumbnail">
            <% @pictures.each do |picture| %>
@@ -12,4 +13,4 @@
     <br />
     <p><%= will_paginate @pictures %></p>
   </div>
-
+<% end %>
