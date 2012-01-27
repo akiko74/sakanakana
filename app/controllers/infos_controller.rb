@@ -14,7 +14,7 @@ class InfosController < ApplicationController
   # GET /infos/1
   # GET /infos/1.xml
   def show
-
+    redirect_to :controller => "top", :action => "index"
 #    @info = Info.find(params[:id])
 #
 #    respond_to do |format|
