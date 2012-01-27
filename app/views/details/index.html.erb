@@ -3,14 +3,16 @@
 <% end %>
 
 <div id="index-right" class="clearfix">
-<table>
+<ul class="thumbnail">
    <% @details.each do |detail| %>
        <% picture = detail.pictures.first %>
           <% unless  picture.nil? %>
-             <td><%= link_to image_tag(detail.pictures.first.image.url(:thumb)), detail %></td>
+             <div id="thumbnail">
+             <li><%= link_to image_tag(detail.pictures.first.image.url(:thumb)), detail %></li>
+             </div>
         <% end %>
    <% end %>
-  </table>
+  </ul>
  </div>
 
 <div id="main">

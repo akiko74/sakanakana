@@ -2,23 +2,25 @@ class InfosController < ApplicationController
   # GET /infos
   # GET /infos.xml
   def index
-    @infos = Info.all
+    redirect_to :controller => "top", :action => "index"
+#    @infos = Info.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @infos }
-    end
+#    respond_to do |format|
+#      format.html # index.html.erb
+#      format.xml  { render :xml => @infos }
+#    end
   end
 
   # GET /infos/1
   # GET /infos/1.xml
   def show
-    @info = Info.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @info }
-    end
+#    @info = Info.find(params[:id])
+#
+#    respond_to do |format|
+#      format.html # show.html.erb
+#      format.xml  { render :xml => @info }
+#    end
   end
 
   # GET /infos/new
