@@ -23,7 +23,6 @@
  <h2>
      更新日：<%= @pickup.created_at.strftime("%Y-%m-%d") %> &nbsp; <%= @detail.name %>
  </h2>
- <%= render 'layouts/shared/lightbox' %>
  <div id="main_cont">
  <p><%= @pickup.comment %></p>
  <p><%= link_to @detail.name, detail_path(@detail, :picture_id => @picture_first.id) %>を見る</p>
