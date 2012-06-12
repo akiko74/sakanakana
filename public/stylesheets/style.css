@@ -238,12 +238,14 @@ list-style:none;
 
 .slideshowtop{
   width:100%;
-  margin:auto;
+  margin-left:auto;
 }
 
 .slideshowtop img{
-  width:100%;
-  margin:auto;
+  width:720px;
+  height:540px;
+  margin-left:auto;
+
 }
 
 #main_cont {
