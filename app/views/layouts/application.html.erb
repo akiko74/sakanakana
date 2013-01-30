@@ -3,18 +3,9 @@
   <head>
     <title><%= content_for?(:title) ? yield(:title)+" | さかなかな？-タオ島、他ダイビングスポットで出会った魚たち" : "さかなかな？-タオ島、他ダイビングスポットで出会った魚たち" %></title>
 
-  <%= stylesheet_link_tag 'style' %>
-  <%= stylesheet_link_tag 'lightbox' %>
-  <%= stylesheet_link_tag 'will_paginate' %>
-  <%= javascript_include_tag(:defaults) %>
-  <%= javascript_include_tag 'jquery.cycle.all' %>
-  <%= javascript_include_tag 'lightbox_plus' %>
-  <%= javascript_include_tag 'rails' %>
+  <%= stylesheet_link_tag 'application' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
-#  <%= stylesheet_link_tag 'style' %>
-#  <%= stylesheet_link_tag 'lightbox' %>
-#  <%= stylesheet_link_tag 'will_paginate' %>
 
 <script type="text/javascript">
 
@@ -36,7 +27,7 @@
        <%= notice %>
        <%= alert %>
   <div id="header_pict">
-   <%= link_to (image_tag('/images/sample_top.jpg', :alt =>'さかなかな？'), root_path) %>
+   <%= link_to(image_tag('/images/sample_top.jpg', :alt =>'さかなかな？'), root_path) %>
   </div>
   <div id="header_cont">
    <h2>タイのタオ島を中心に、ダイビング中に出会った魚の写真を掲載しています</h2>

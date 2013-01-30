@@ -44,7 +44,7 @@ class DetailsController < ApplicationController
   # GET /details/new.xml
   def new
     @detail = Detail.new
-    @csv = params[:csv]    
+    @csv = params[:csv]
 
     respond_to do |format|
       format.html # new.html.erb
