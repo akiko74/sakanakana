@@ -2,6 +2,7 @@
 db/*.sqlite3
 log/*.log
 tmp/**/*
-.rvmrc
+.rvmrc.*
+*.swp
 public/systems/images/*
 vendor/*
