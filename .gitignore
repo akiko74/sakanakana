@@ -4,5 +4,6 @@ log/*.log
 tmp/**/*
 .rvmrc.*
 *.swp
-public/systems/images/*
+public/system/divesites/*
+public/system/pictures/*
 vendor/*
