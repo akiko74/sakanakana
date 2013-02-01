@@ -35,8 +35,12 @@
 <div id="main">
   <div class="slideshowtop">
       <% @pictures.each do |picture| %>
+        <% if picture.details.empty? %>
+          <%= image_tag picture.image.url(:medium) %>
+        <% else %>
         <% @detail=picture.details.first %>
           <%= link_to (image_tag picture.image.url(:medium)), detail_path(@detail, :picture_id => picture.id) %>
+        <% end %>
         <% end %>
   </div>
  <div id="main_cont">
