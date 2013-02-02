@@ -2,7 +2,7 @@
 </div>
 
 <div id="main">
-<%= form_for(@divesite, {}, :html => { :multipart => true }) do |f| %>
+<%= form_for(@divesite, :html => { :multipart => true }) do |f| %>
   <% if @divesite.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@divesite.errors.count, "error") %> prohibited this divesite from being saved:</h2>

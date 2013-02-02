@@ -9,7 +9,8 @@ gem 'mysql2'
 #gem 'ruby-debug',:require=>nil
 
 #画像縮小用
-gem 'paperclip', '2.7.0'
+gem 'paperclip', "~> 3.4"
+
 
 #Twitter表示用
 gem 'twitter'
@@ -50,7 +51,7 @@ group :development, :test do
   gem 'capybara'
   gem 'rspec'
   gem 'debugger'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails',:require => false
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'capistrano'

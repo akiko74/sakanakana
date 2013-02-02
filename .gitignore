@@ -2,6 +2,8 @@
 db/*.sqlite3
 log/*.log
 tmp/**/*
-.rvmrc
-public/systems/images/*
+.rvmrc.*
+*.swp
+public/system/divesites/*
+public/system/pictures/*
 vendor/*
